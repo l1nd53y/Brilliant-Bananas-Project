@@ -1,0 +1,8 @@
+{
+  "data": [
+      {"name" : "Sriracha", "image" : "/img/Sriracha.gif"},
+      {"name" : "Franks", "image": "/img/Franks.gif"},
+      {"name" : "Tobasco", "image": "/img/Tobasco.gif"}
+  ]  
+}
+

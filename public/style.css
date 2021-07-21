@@ -1,0 +1,46 @@
+
+body {
+  background-color: thistle;  
+}
+
+h1, h2 {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 100;
+}
+
+.block {
+  width: 30vw;
+  float: left;
+}
+
+.big-block {
+  width: 60vw;
+  float: left;
+}
+
+.item-container {
+  margin: 1.5vw;
+}
+
+.item-img {
+  width: 225px;
+  padding: 0 10px;
+  float: left;
+  height: 225px;
+  background-repeat: no-repeat;
+  background-size: 225px;
+}
+
+#btn {
+  display: inline-block;
+  width:  150px;
+  background-color: #d3d3d3;
+  border-radius:  10px;
+  text-align:  center;
+  box-shadow: 1px #d3d3d3;
+  clear:  both;
+}
+
+label, select {
+  font-size: 1em;
+}

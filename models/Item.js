@@ -6,9 +6,9 @@ class Item extends Model {}
 Item.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING,
-    price:DataTypes.FLOAT,
+    price: DataTypes.FLOAT,
     category:DataTypes.STRING,
-    image:DataTypes.STRING
+    image: DataTypes.STRING,
 }, {
     sequelize: db,
     timestamps: false,

@@ -4,15 +4,17 @@ const Handlebars = require('handlebars')
 const expressHandlebars = require('express-handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
+
 const Warehouse = require('./models/Warehouse');
 const Aisle = require('./models/Aisle');
 const Item = require('./models/Item');
+
 
 const initialiseDb = require('./initialiseDb');
 initialiseDb();
 
 const app = express();
-const port = 3000;
+const port = 6000;
 
 
 
@@ -29,51 +31,83 @@ const handlebars = expressHandlebars({
 app.engine('handlebars', handlebars);
 app.set('view engine', 'handlebars');
 
-const restaurantChecks = [
+const warehouseChecks = [
     check('name').not().isEmpty().trim().escape(),
     check('image').isURL(),
-    check('name').isLength({ max: 50 })
+    // check('name').isLength({ max: 50 })
 ]
 
-app.get('/restaurants', async (req, res) => {
-    const restaurants = await Restaurant.findAll();
-    res.render('restaurants', { restaurants });
+app.get('/warehouses', async (req, res) => {
+    const warehouses = await Warehouse.findAll();
+    res.render('warehouses', { warehouses });
 });
 
-app.get('/restaurants/:id', async (req, res) => {
-    const restaurant = await Restaurant.findByPk(req.params.id, {include: {
-            model: Menu,
-            include: MenuItem
+app.get('/warehouses/:id', async (req, res) => {
+    const warehouse = await Warehouse.findByPk(req.params.id, {include: {
+            model: Aisles,
+            include: Item
         }
     });
-    res.render('restaurant', { restaurant });
+    res.render('warehouse', { warehouse });
 });
 
-app.get('/new-restaurant-form', (req, res) => {
-    res.render('newRestaurantForm');
+
+
+const aisleChecks = [
+    check('name').not().isEmpty().trim().escape(),
+    check('image').isURL(),
+    // check('name').isLength({ max: 50 })
+]
+
+app.get('/aisles', async (req, res) => {
+    const aisles = await Aisles.findAll();
+    res.render('aisles', { aisles });
 });
 
-app.post('/new-restaurant', async (req, res) => {
-    const newRestaurant = await Restaurant.create(req.body);
-    const foundRestaurant = await Restaurant.findByPk(newRestaurant.id);
-    if(foundRestaurant) {
-        res.status(201).send('New restaurant created~')
+
+myapp.get('/aisles/:id', async (req, res) => {
+	const aisles = await Aisles.findByPk(req.params.id, {include : Warehouse});
+	res.json({ aisles })
+})
+
+app.get('/items', async (req, res) => {
+    const items = await Item.findAll();
+    res.render('items', { items });
+});
+
+
+myapp.get('/items/:id', async (req, res) => {
+	const items = await Item.findByPk(req.params.id,);
+	res.json({ aisles })
+})
+
+app.get('/new-item-form', (req, res) => {
+    res.render('newItemForm');
+});
+
+
+
+app.post('/new-warehouse', async (req, res) => {
+    const newWarehouse = await Warehouse.create(req.body);
+    const foundWarehouse = await Warehouse.findByPk(newWarehouse.id);
+    if(foundWarehouse) {
+        res.status(201).send('New Warehouse created!!~')
     } else {
-        console.log("Could not create restaurant~")
+        console.log("Could not create Warehouse~")
     }
 });
 
-app.post('/restaurants', restaurantChecks, async (req, res) => {
+app.post('/warehouses', warehouseChecks, async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    await Restaurant.create(req.body);
+    await Warehouse.create(req.body);
     res.sendStatus(201);
 });
 
-app.delete('/restaurants/:id', async (req, res) => {
-    await Restaurant.destroy({
+app.delete('/warehouses/:id', async (req, res) => {
+    await Warehouse.destroy({
         where: {
             id: req.params.id
         }
@@ -81,19 +115,19 @@ app.delete('/restaurants/:id', async (req, res) => {
     res.sendStatus(200);
 });
 
-app.put('/restaurants/:id', restaurantChecks, async (req, res) => {
+app.put('/warehouses/:id', warehouseChecks, async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const restaurant = await Restaurant.findByPk(req.params.id);
-    await restaurant.update(req.body);
+    const warehouse = await Warehouse.findByPk(req.params.id);
+    await warehouse.update(req.body);
     res.sendStatus(200);
 });
 
-app.patch('/restaurants/:id', async (req, res) => {
-    const restaurant = await Restaurant.findByPk(req.params.id);
-    await restaurant.update(req.body);
+app.patch('/warehouses/:id', async (req, res) => {
+    const warehouse = await Warehouse.findByPk(req.params.id);
+    await warehouse.update(req.body);
     res.sendStatus(200);
 });
 

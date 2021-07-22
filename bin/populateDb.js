@@ -4,7 +4,7 @@ const path = require('path');
 const initialiseDb = require('../initialiseDb');
 const Restaurant = require('../models/restaurant');
 const Menu = require('../models/menu');
-const MenuItem = require('../models/menuItem');
+const Item = require('../models/Item');
 
 async function populateDb() {
     await initialiseDb();

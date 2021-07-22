@@ -6,7 +6,7 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 
 const Restaurant = require('./models/restaurant');
 const Menu = require('./models/menu');
-const MenuItem = require('./models/menuItem');
+const Item = require('./models/Item');
 
 const initialiseDb = require('./initialiseDb');
 initialiseDb();

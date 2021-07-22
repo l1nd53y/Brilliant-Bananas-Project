@@ -1,0 +1,17 @@
+<div>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h1><u>{{restaurant.name}}</u></h1>
+            <h3>Location: {{restaurant.location}}<br>
+            Cuisine: {{restaurant.cuisine}}<br></h3>
+            <img class="item-img" src="{{restaurant.image}}" /><br>
+            <h4><u>Menu:</u></h4> {{#each restaurant.Menus}}
+                <h4>{{this.title}}</h4>
+                    <ul>{{#each this.MenuItems}}
+                    <li>{{this.name}} : ${{this.price}}</li>
+                    {{/each}}
+                    </ul>
+                    {{/each}}
+            <a href="/restaurants"><button class="button">❮ Restaurants</button></a>
+        </div>
+</div>

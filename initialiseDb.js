@@ -1,5 +1,5 @@
-const Warehouse = require('./models/warehouse');
-const Aisle = require('./models/aisle');
+const Warehouse = require('./models/Warehouse');
+const Aisle = require('./models/Aisle');
 const Item = require('./models/Item');
 const db = require('./db');
 

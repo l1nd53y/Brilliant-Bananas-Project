@@ -1,13 +1,13 @@
-const Restaurant = require('./models/restaurant');
-const Menu = require('./models/menu');
-const MenuItem = require('./models/menuItem');
+const Warehouse = require('./models/warehouse');
+const Aisle = require('./models/aisle');
+const Item = require('./models/Item');
 const db = require('./db');
 
 async function initialiseDb() {
-    Restaurant.hasMany(Menu)
-    Menu.belongsTo(Restaurant)
-    Menu.hasMany(MenuItem);
-    MenuItem.belongsTo(Menu);
+    Warehouse.hasMany(Aisle)
+    Aisle.belongsTo(Warehouse)
+    Aisle.hasMany(Item);
+    Item.belongsTo(Aisle);
     await db.sync();
 }
 

@@ -10,6 +10,7 @@
                         "name": "shirt",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -17,6 +18,7 @@
                         "name": "pants",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -24,6 +26,7 @@
                         "name": "socks",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -31,6 +34,7 @@
                         "name": "jacket",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     }
@@ -43,6 +47,7 @@
                         "name": "dog bone",
                         "image": "###",
                         "quantity": "2",
+                        "category": "animal",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -50,6 +55,7 @@
                         "name": "dog leash",
                         "image": "###",
                         "quantity": "2",
+                        "category": "animal",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -58,6 +64,7 @@
                         "image": "###",
                         "quantity": "2",
                         "price": 6.50,
+                        "category": "animal",
                         "description": "item description"
                     }
                 ]
@@ -75,6 +82,7 @@
                         "name": "shirt",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -82,6 +90,7 @@
                         "name": "pants",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -89,6 +98,7 @@
                         "name": "socks",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -96,6 +106,7 @@
                         "name": "jacket",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     }
@@ -108,6 +119,7 @@
                         "name": "Mixer",
                         "image": "###",
                         "quantity": "2",
+                        "category": "home",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -115,6 +127,7 @@
                         "name": "Metal Bowl",
                         "image": "###",
                         "quantity": "2",
+                        "category": "home",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -122,6 +135,7 @@
                         "name": "Spoon",
                         "image": "###",
                         "quantity": "2",
+                        "category": "home",
                         "price": 6.50,
                         "description": "item description"
                     }
@@ -140,6 +154,7 @@
                         "name": "shirt",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -147,6 +162,7 @@
                         "name": "pants",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -154,6 +170,7 @@
                         "name": "socks",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -161,6 +178,7 @@
                         "name": "jacket",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     }
@@ -174,12 +192,14 @@
                         "image": "###",
                         "quantity": "2",
                         "price": 6.50,
+                        "category": "garden",
                         "description": "item description"
                     },
                     {
                         "name": "Flower Pot",
                         "image": "###",
                         "quantity": "2",
+                        "category": "garden",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -187,6 +207,7 @@
                         "name": "Soile",
                         "image": "###",
                         "quantity": "2",
+                        "category": "garden",
                         "price": 6.50,
                         "description": "item description"
                     }
@@ -204,6 +225,7 @@
                         "name": "shirt",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -211,6 +233,7 @@
                         "name": "pants",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -218,6 +241,7 @@
                         "name": "socks",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -225,6 +249,7 @@
                         "name": "jacket",
                         "image": "###",
                         "quantity": "2",
+                        "category": "clothing",
                         "price": 6.50,
                         "description": "item description"
                     }
@@ -237,6 +262,7 @@
                         "name": "running shorts",
                         "image": "###",
                         "quantity": "2",
+                        "category": "active clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -244,6 +270,7 @@
                         "name": "running shoes",
                         "image": "###",
                         "quantity": "2",
+                        "category": "active clothing",
                         "price": 6.50,
                         "description": "item description"
                     },
@@ -251,6 +278,7 @@
                         "name": "towel",
                         "image": "###",
                         "quantity": "2",
+                        "category": "active clothing",
                         "price": 6.50,
                         "description": "item description"
                     }

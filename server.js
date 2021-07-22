@@ -14,7 +14,7 @@ const initialiseDb = require('./initialiseDb');
 initialiseDb();
 
 const app = express();
-const port = 6000;
+const port = 3000;
 
 
 
@@ -31,10 +31,18 @@ const handlebars = expressHandlebars({
 app.engine('handlebars', handlebars);
 app.set('view engine', 'handlebars');
 
+
+
+/**
+    * Warehouse(s) Routes
+    *  GET, PUT, POST, PUT, DELETE
+**/
+
+//Validation for route
 const warehouseChecks = [
     check('name').not().isEmpty().trim().escape(),
     check('image').isURL(),
-    // check('name').isLength({ max: 50 })
+    check('name').isLength({ max: 50 })
 ]
 
 app.get('/warehouses', async (req, res) => {
@@ -44,57 +52,11 @@ app.get('/warehouses', async (req, res) => {
 
 app.get('/warehouses/:id', async (req, res) => {
     const warehouse = await Warehouse.findByPk(req.params.id, {include: {
-            model: Aisles,
+            model: Aisle,
             include: Item
         }
     });
     res.render('warehouse', { warehouse });
-});
-
-
-
-const aisleChecks = [
-    check('name').not().isEmpty().trim().escape(),
-    check('image').isURL(),
-    // check('name').isLength({ max: 50 })
-]
-
-app.get('/aisles', async (req, res) => {
-    const aisles = await Aisles.findAll();
-    res.render('aisles', { aisles });
-});
-
-
-myapp.get('/aisles/:id', async (req, res) => {
-	const aisles = await Aisles.findByPk(req.params.id, {include : Warehouse});
-	res.json({ aisles })
-})
-
-app.get('/items', async (req, res) => {
-    const items = await Item.findAll();
-    res.render('items', { items });
-});
-
-
-myapp.get('/items/:id', async (req, res) => {
-	const items = await Item.findByPk(req.params.id,);
-	res.json({ aisles })
-})
-
-app.get('/new-item-form', (req, res) => {
-    res.render('newItemForm');
-});
-
-
-
-app.post('/new-warehouse', async (req, res) => {
-    const newWarehouse = await Warehouse.create(req.body);
-    const foundWarehouse = await Warehouse.findByPk(newWarehouse.id);
-    if(foundWarehouse) {
-        res.status(201).send('New Warehouse created!!~')
-    } else {
-        console.log("Could not create Warehouse~")
-    }
 });
 
 app.post('/warehouses', warehouseChecks, async (req, res) => {
@@ -130,6 +92,52 @@ app.patch('/warehouses/:id', async (req, res) => {
     await warehouse.update(req.body);
     res.sendStatus(200);
 });
+
+
+
+
+
+// app.post('/new-warehouse', async (req, res) => {
+//     const newWarehouse = await Warehouse.create(req.body);
+//     const foundWarehouse = await Warehouse.findByPk(newWarehouse.id);
+//     if(foundWarehouse) {
+//         res.status(201).send('New Warehouse created!!~')
+//     } else {
+//         console.log("Could not create Warehouse~")
+//     }
+// });
+
+// const aisleChecks = [
+//     check('name').not().isEmpty().trim().escape(),
+//     check('image').isURL(),
+//     // check('name').isLength({ max: 50 })
+// ]
+
+// app.get('/aisles', async (req, res) => {
+//     const aisles = await Aisles.findAll();
+//     res.render('aisles', { aisles });
+// });
+
+
+// app.get('/aisles/:id', async (req, res) => {
+// 	const aisles = await Aisles.findByPk(req.params.id, {include : Warehouse});
+// 	res.json({ aisles })
+// })
+
+// app.get('/items', async (req, res) => {
+//     const items = await Item.findAll();
+//     res.render('items', { items });
+// });
+
+
+// app.get('/items/:id', async (req, res) => {
+// 	const items = await Item.findByPk(req.params.id,);
+// 	res.json({ aisles })
+// })
+
+// app.get('/new-item-form', (req, res) => {
+//     res.render('newItemForm');
+// });
 
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);

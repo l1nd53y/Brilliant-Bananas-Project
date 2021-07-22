@@ -5,7 +5,7 @@
             <img class="item-img" src="{{warehouse.image}}"/><br>
             <h4><u>Aisles:</u></h4> {{#each warehouse.aisle}}
                 <h4>{{this.name}}</h4>
-                    <ul>{{#each this.Items}}
+                    <ul>{{#each this.Item}}
                     <li>{{this.name}}</li>
                     {{/each}}
                     </ul>

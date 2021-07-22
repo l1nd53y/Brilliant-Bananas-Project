@@ -1,0 +1,12 @@
+<div>
+    <h1>Restaurants~</h1>
+	<h3>There are {{restaurants.length}} restaurants. <a class="btn" href="/new-restaurant-form"><button class="button">Add restaurant +</button></a></h3> 
+    <div class="grid-container">
+	{{#each restaurants}} <!-- for each sauce in sauces, create this html -->
+        <div class="grid-item">
+			<h2>{{name}}</h2>
+			<img class="item-img" src="{{image}}" />
+			<a class="btn" href="/restaurants/{{id}}"><button class="button">Details ❯</button></a>
+		</div>
+	{{/each}}
+</div>

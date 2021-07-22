@@ -4,9 +4,11 @@ const Handlebars = require('handlebars')
 const expressHandlebars = require('express-handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
-const warehouses = require('./models/warehouse');
-const aisle = require('./models/aisle');
-const item = require('./models/Item');
+
+const Warehouse = require('./models/Warehouse');
+const Aisle = require('./models/Aisle');
+const Item = require('./models/Item');
+
 
 const initialiseDb = require('./initialiseDb');
 initialiseDb();

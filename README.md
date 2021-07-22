@@ -1,7 +1,7 @@
 # Brilliant-Bananas-Project
  Final Project Multiverse
 
- -# UML
+ - # UML
    - **[Activity Diagram](./UML/activitydiagram/)**
    - **[Class Diagram](./UML/Class%20Diagrams/)**
    - **[Wire Frame](./UML/wireframe/)**

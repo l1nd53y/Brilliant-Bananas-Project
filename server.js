@@ -108,8 +108,14 @@ app.post('/new-warehouse', async (req, res) => {
     }
 });
 
+/**
+    * Aisle(s) Routes
+    *  GET, PUT, POST, PUT, DELETE
+**/
+//Aisle Validation
 const aisleChecks = [
     check('name').not().isEmpty().trim().escape(),
+    check('id').isNumeric(),
     check('image').isURL(),
     check('name').isLength({ max: 50 })
 ]
@@ -119,17 +125,24 @@ app.get('/aisles', async (req, res) => {
     res.render('aisles', { aisles });
 });
 
+//Aisle Routes -(option if we add just a single Aisle view)
+app.get('/aisles/:id', async (req, res) => {
+    const aisle = await Aisle.findByPk(req.params.id, {
+        include: {
+            model: Item
+        }
+    });
+    console.log(`🐛 Ailse:`, aisle);
+     res.json(aisle);
+    //res.render();
+})
 
-// app.get('/aisles/:id', async (req, res) => {
-// 	const aisles = await Aisles.findByPk(req.params.id, {include : Warehouse});
-// 	res.json({ aisles })
-// })
+
 
 // app.get('/items', async (req, res) => {
 //     const items = await Item.findAll();
 //     res.render('items', { items });
 // });
-
 
 // app.get('/items/:id', async (req, res) => {
 // 	const items = await Item.findByPk(req.params.id,);

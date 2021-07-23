@@ -1,4 +1,4 @@
-const db = require('../db');
+const {sequelize} = require('../db');
 const { DataTypes, Model } = require('sequelize');
 
 class Aisle extends Model {}
@@ -6,8 +6,8 @@ class Aisle extends Model {}
 Aisle.init({
     name: DataTypes.STRING,
 }, {
-    sequelize: db,
+    sequelize,
     timestamps: false,
 });
 
-module.exports = Aisle;
+module.exports = {Aisle};

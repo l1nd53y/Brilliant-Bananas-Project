@@ -1,4 +1,4 @@
-const db = require('../db');
+const {sequelize} = require('../db');
 const { DataTypes, Model } = require('sequelize');
 
 class Item extends Model {}
@@ -10,8 +10,8 @@ Item.init({
     price: DataTypes.STRING,
     description: DataTypes.STRING,
 }, {
-    sequelize: db,
+    sequelize,
     timestamps: false,
 });
 
-module.exports = Item;
+module.exports = {Item};

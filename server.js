@@ -5,9 +5,9 @@ const expressHandlebars = require('express-handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 
-const Warehouse = require('./models/Warehouse');
-const Aisle = require('./models/Aisle');
-const Item = require('./models/Item');
+const {Warehouse} = require('./models/Warehouse');
+const {Aisle} = require('./models/Aisle');
+const {Item} = require('./models/Item');
 
 
 const initialiseDb = require('./initialiseDb');
@@ -145,7 +145,7 @@ app.get('/aisles/:id', async (req, res) => {
             model: Item
         }
     });
-    console.log(`🐛 Ailse:`, aisle);
+    //console.log(`🐛 Ailse:`, aisle);
      res.json(aisle);
     //res.render();
 })

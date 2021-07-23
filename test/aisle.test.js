@@ -1,4 +1,5 @@
 const {sequelize} = require('../db')
+const { Aisle } = require('../models/aisle')
 
 describe('Aisles database', () => {
 
@@ -7,7 +8,12 @@ describe('Aisles database', () => {
     })
 
     test('can create aisle', async () => {
-        const testAisle = await Aisle.create({name: 'Sports' })
-        expect(testAisle.name).toBe('Sports')
+        const testAisle = await Aisle.create({name: 'Fashion' })
+        expect(testAisle.name).toBe('Fashion')
+    })
+
+    test('aisle is type of string', async () => {
+        const testAisle = await Aisle.create({name: 'Fashion' })
+        expect(typeof testAisle.name).toBe('string')
     })
 })

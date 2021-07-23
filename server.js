@@ -125,6 +125,19 @@ app.get('/aisles', async (req, res) => {
     res.render('aisles', { aisles });
 });
 
+
+app.get('/items/:id', async (req, res) => {
+    const item = await Item.findByPk(req.params.id, {
+        include: {
+            model: Aisle,
+            include: Item
+        }
+    });
+    res.render('item', { item });
+    // res.json(item);
+});
+
+
 //Aisle Routes -(option if we add just a single Aisle view)
 app.get('/aisles/:id', async (req, res) => {
     const aisle = await Aisle.findByPk(req.params.id, {

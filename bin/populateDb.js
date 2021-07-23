@@ -7,7 +7,7 @@ const Aisle = require('../models/Aisle');
 const Item = require('../models/Item');
 
 async function populateDb() {
-    console.log('!! PopulateDB Called !!');
+    console.log('!! 💾 PopulateDB Called 💾 !!');
     await initialiseDb();
     await db.sync({ force: true });
     const buffer = await fs.readFile(path.join(__dirname, '..', 'warehouse.json'));
@@ -16,13 +16,14 @@ async function populateDb() {
         const warehouse = await Warehouse.create(warehouseData);
         for (const aisleData of warehouseData.aisle) {
             const aisle = await Aisle.create(aisleData);
-            await warehouse.addAisle();
+            await warehouse.addAisle(aisle);
             for (const itemData of aisleData.items) {
                 const item = await Item.create(itemData);
                 await aisle.addItem(item);
             }
         }
     }
+    console.log("!! 💾 PopulateDB Called 💾 !!")
 }
 
 populateDb();

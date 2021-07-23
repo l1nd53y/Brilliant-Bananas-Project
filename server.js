@@ -17,9 +17,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
-app.use(express.urlencoded(
-    { extended: true }
-));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Configures handlebars library to work well w/ Express + Sequelize model
@@ -45,16 +43,20 @@ const warehouseChecks = [
 
 app.get('/warehouses', async (req, res) => {
     const warehouses = await Warehouse.findAll();
+    console.log(`🐛 warehouse:`, warehouses);
     res.render('warehouses', { warehouses });
 });
 
 app.get('/warehouses/:id', async (req, res) => {
-    const warehouse = await Warehouse.findByPk(req.params.id, {include: {
+    const warehouse = await Warehouse.findByPk(req.params.id, {
+        include: {
             model: Aisle,
             include: Item
         }
     });
+    //console.log(`🐛 Ailse:`, warehouse);
     res.render('warehouse', { warehouse });
+    //res.json(warehouse);
 });
 
 app.post('/warehouses', warehouseChecks, async (req, res) => {
@@ -141,5 +143,5 @@ app.get('/aisles', async (req, res) => {
 // });
 
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+    console.log(`🚀  Server listening at http://localhost:${port} 🚀 `);
 });

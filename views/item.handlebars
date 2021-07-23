@@ -10,6 +10,9 @@
                     <li>Category: {{category}}</li>
                     {{/each}}
                     </ul>
-            <a href="/warehouses"><button class="button">❮ Warehouses</button></a>
+            {{!-- <a href="/warehouses"><button class="button">❮ Warehouses</button></a> --}}
+            <script>
+  document.write('<a href="' + document.referrer + '"><button class="button">❮ Back</button></a>');
+</script>
         </div>
 </div>

@@ -6,7 +6,7 @@
             <h4><u>Aisles:</u></h4> {{#each warehouse.Aisles}}
                 <h4>{{this.name}}</h4>
                     <ul>{{#each this.Items}}
-                    <li>{{this.name}}</li>
+                    <li><a href="/items/{{id}}">{{this.name}}</a></li>
                     {{/each}}
                     </ul>
                     {{/each}}

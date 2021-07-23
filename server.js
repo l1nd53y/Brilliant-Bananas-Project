@@ -119,6 +119,16 @@ app.get('/aisles', async (req, res) => {
     res.render('aisles', { aisles });
 });
 
+app.get('/items/:id', async (req, res) => {
+    const item = await Item.findByPk(req.params.id, {
+        include: {
+            model: Aisle,
+            include: Item
+        }
+    });
+    res.render('item', { item });
+});
+
 
 // app.get('/aisles/:id', async (req, res) => {
 // 	const aisles = await Aisles.findByPk(req.params.id, {include : Warehouse});

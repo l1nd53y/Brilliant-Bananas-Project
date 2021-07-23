@@ -43,7 +43,7 @@ const warehouseChecks = [
 
 app.get('/warehouses', async (req, res) => {
     const warehouses = await Warehouse.findAll();
-    console.log(`🐛 warehouse:`, warehouses);
+    //console.log(`🐛 warehouse:`, warehouses);
     res.render('warehouses', { warehouses });
 });
 

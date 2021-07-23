@@ -1,3 +1,4 @@
+//DB association
 const Warehouse = require('./models/Warehouse');
 const Aisle = require('./models/Aisle');
 const Item = require('./models/Item');

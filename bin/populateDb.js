@@ -1,3 +1,5 @@
+//DB population file for seed
+
 const db = require('../db');
 const fs = require('fs/promises');
 const path = require('path');

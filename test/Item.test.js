@@ -1,9 +1,9 @@
-const Item= require('../src/Item');
+const Item= require('../models/Item');
 describe('Item Object',() => {
 
-    const baseball= new Item('baseball',
-    'Leather cover with raised seams and Solid cork composition core',5.99,'Sports','ball.jpeg')
-    const racquets= new Item('racquets','light weight and good net',12.99,'Sports','racquets.png')
+    const baseball= new Item('baseball','ball.jpeg','sports',5.99,
+    'Leather cover with raised seams and Solid cork composition core')
+   // const racquets= new Item('racquets','light weight and good net',12.99,'Sports','racquets.png')
       //1-Data types test
         test ('Item has name',()=>{
             expect(baseball.name).toBe('baseball');
@@ -22,11 +22,11 @@ describe('Item Object',() => {
             });
     
         test('name is of type string', () => {
-            expect(typeof baseball.name).toBe('string')
+            expect(typeof baseball.name).toBe('string');
             })
     
         test('price is of type number', () => {
-            expect(typeof baseball.price).toBe('number')
+            expect(typeof baseball.price).toBe('number');
             })
 
         })

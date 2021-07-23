@@ -6,7 +6,6 @@ class Item extends Model {}
 Item.init({
     name: DataTypes.STRING,
     image: DataTypes.STRING,
-    quantity: DataTypes.STRING,
     category: DataTypes.STRING,
     price: DataTypes.STRING,
     description: DataTypes.STRING,

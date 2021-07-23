@@ -3,13 +3,14 @@
         <div class="grid-item">
             <h1><u>{{warehouse.name}}</u></h1>
             <img class="item-img" src="{{warehouse.image}}"/><br>
-            <h4><u>Aisles:</u></h4> {{#each warehouse.Aisles}}
+            <h4><u>Aisles:</u></h4> {{#each warehouse.aisle}}
                 <h4>{{this.name}}</h4>
                     <ul>{{#each this.Item}}
                     <li>{{this.name}}</li>
                     {{/each}}
                     </ul>
                     {{/each}}
-            <a href="/warehouses"><button class="button">❮ Warehouses</button></a> <a class="btn" href="/new-item-form"><button class="button">Add item +</button></a>
+            <a href="/warehouses"><button class="button">❮ Warehouses</button></a>
+            <a class="btn" href="/new-item-form"><button class="button">Add item +</button></a>
         </div>
 </div>

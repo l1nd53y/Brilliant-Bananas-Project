@@ -127,6 +127,7 @@ app.get('/items/:id', async (req, res) => {
         }
     });
     res.render('item', { item });
+    // res.json(item);
 });
 
 

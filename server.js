@@ -93,9 +93,21 @@ app.patch('/warehouses/:id', async (req, res) => {
     res.sendStatus(200);
 });
 
+app.get('/new-form', (req, res) => {
+    console.log()
+    res.render('newWarehouseForm');
+})
 
-app.get('/new-item-form')
+app.post('/new-warehouse-form', async (req, res) => {
+    const newWarehouse = await Warehouse.create(req.body);
+    const warehouse= await Warehouse.findByPk(newWarehouse.id);
 
+    if(warehouse) {
+        res.render('warehosue', {warehouse});
+    } else {
+        console.log("No warehouse created.")
+    }
+})
 
 app.post('/new-warehouse', async (req, res) => {
     const newWarehouse = await Warehouse.create(req.body);
@@ -146,21 +158,36 @@ app.get('/aisles/:id', async (req, res) => {
         }
     });
     console.log(`🐛 Ailse:`, aisle);
-     res.json(aisle);
+    res.json(aisle);
     //res.render();
 })
 
 
 
-// app.get('/items', async (req, res) => {
-//     const items = await Item.findAll();
-//     res.render('items', { items });
-// });
+app.get('/items', async (req, res) => {
+    const items = await Item.findAll();
+    res.render('items', { items });
+});
+
 
 // app.get('/items/:id', async (req, res) => {
 // 	const items = await Item.findByPk(req.params.id,);
 // 	res.json({ aisles })
 // })
+app.get('/new-item-form', (req, res) => {
+    res.render('newItemForm');
+})
+
+app.post('/new-item-form', async (req, res) => {
+    const newItem = await Item.create(req.body);
+    const item = await Item.findByPk(newItem.id);
+
+    if(item) {
+        res.render('item', {item});
+    } else {
+        console.log("No item created.")
+    }
+})
 
 // app.get('/new-item-form', (req, res) => {
 //     const newItem = await newItem.create(req.body);

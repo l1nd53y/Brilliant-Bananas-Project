@@ -1,12 +1,22 @@
 <div>
     <h1>Warehouses~</h1>
 	<h3>There are {{warehouses.length}} warehouses.</h3> 
+	<form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		<a class="btn" href="/new-form">
+		<button class="button">Add Warehouse +</button></a>
+	
+
+    </form>
+</div>
     <div class="grid-container">
 	{{#each warehouses}}
         <div class="grid-item">
 			<h2>{{name}}</h2>
 			<img class="item-img" src="{{image}}" />
-			<a class="btn" href="/warehouses/{{id}}"><button class="button">Details ❯</button></a>
+			<a class="btn" href="/warehouses/{{id}}">
+			<button class="button">Details ❯</button></a>
 		</div>
 	{{/each}}
 </div>

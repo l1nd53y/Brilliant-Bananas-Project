@@ -1,18 +1,17 @@
 <div>
-    <div class="grid-container">
-        <div class="grid-item">
-            {{#each Item}}
-            <h1><u>{{this.name}}</u></h1><br>
-            <img class="item-img" src="{{image}}" /><br>
-                    <ul>
-                    <li>Price: ${{price}}</li>
-                    <li>Description: {{description}}</li>
-                    <li>Category: {{category}}</li>
-                    {{/each}}
-                    </ul>
-            {{!-- <a href="/warehouses"><button class="button">❮ Warehouses</button></a> --}}
-            <script>
-  document.write('<a href="' + document.referrer + '"><button class="button">❮ Back</button></a>');
+<div class="grid-container">
+<div class="grid-item">
+<h1><u>{{item.name}}</u></h1><br>
+<img class="item-img" src="{{item.image}}" /><br>
+<ul>
+        <li>Price: ${{item.price}}</li>
+        <li>Description: {{item.description}}</li>
+        <li>Category: {{item.category}}</li>
+</ul>
+{{!-- <a href="/warehouses"><button class="button">❮ Warehouses</button></a> --}}
+<script>
+document.write('<a href="' + document.referrer + '"><button class="button">❮ Back</button></a>');
 </script>
+<button id='delete' class='btn btn-danger' type='submit'>Delete Item</button>
         </div>
 </div>

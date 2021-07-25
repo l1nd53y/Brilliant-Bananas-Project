@@ -145,7 +145,7 @@
     },
     {
         "name": "Afreen",
-        "image": "/img/warehouse3.jpg",
+        "image": "/img/download1.png",
         "aisle": [
             {
                 "name": "Makeup Products",
@@ -168,7 +168,7 @@
                     },
                     {
                         "name": "Liquid Lash Extensions Mascara",
-                        "image": "/img/mascara.jpg",
+                        "image": "/img/mascara.png",
                         "quantity": "2",
                         "category": "eye product",
                         "price": 26.50,

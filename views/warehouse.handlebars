@@ -1,16 +1,23 @@
-<div>
-    <div class="grid-container">
-        <div class="grid-item">
-            <h1><u>{{warehouse.name}}</u></h1>
-            <img class="item-img" src="{{warehouse.image}}"/><br>
-            <h4><u>Aisles:</u></h4> {{#each warehouse.Aisles}}
-                <h4>{{this.name}}</h4>
-                    <ul>{{#each this.Items}}
-                    <li><a href="/items/{{id}}">{{this.name}}</a></li>
-                    {{/each}}
-                    </ul>
-                    {{/each}}
+<div class="grid-container">
+    <div class="grid-item">
+        <h1><u>{{warehouse.name}}</u></h1>
+            {{!-- <img class="item-img" src="{{warehouse.image}}"/><br> --}}
+        <h2><u>Aisles:</u></h2>
+        <div class="grid-container">
+        {{#each warehouse.Aisles}}
+            <div class="grid-item">
+                <h3>{{this.name}}</h3>
+                <ul>{{#each this.Items}} 
+                    <img class="item-img" src="{{image}}" /> <br>
+                    <li><a href="/items/{{id}}">{{this.name}}-----${{this.price}}</a></li><br> <br>
+                    {{/each}} <br> <br>
+                </ul>
+            </div>
+        {{/each}}
+        <div class="grid">   
             <a href="/warehouses"><button class="button">❮ Warehouses</button></a>
             <a class="btn" href="/new-item-form"><button class="button">Add item +</button></a>
         </div>
+        </div>
+    </div>
 </div>

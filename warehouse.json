@@ -217,70 +217,63 @@
     },
     {
         "name": "Chad",
+        "image": "/img/chad/Star-wars-logo.jpg",
         "aisle": [
             {
-                "name": "Summer Clothing",
+                "name": "Hoth Clothing",
                 "items": [
                     {
-                        "name": "shirt",
-                        "image": "###",
+                        "name": "Hoth Parka",
+                        "image": "/img/chad/hoth-parka.jpeg",
                         "quantity": "2",
-                        "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "coat",
+                        "price": 600.50,
+                        "description": "Don't be stuck outside on a day or night on Hoth a Parka or you'll need to sacrifice your Tauntaun!"
                     },
                     {
-                        "name": "pants",
-                        "image": "###",
+                        "name": "Hoth Com Gloves",
+                        "image": "/img/chad/hoth-glove.jpg",
                         "quantity": "2",
-                        "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "",
+                        "price": 200.50,
+                        "description": "All the warmth you could want for your hands. plus built in communication device..what more could you want!"
                     },
                     {
-                        "name": "socks",
-                        "image": "###",
+                        "name": "Hoth Boots",
+                        "image": "/img/chad/hoth-boot.jpg",
                         "quantity": "2",
                         "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
-                    },
-                    {
-                        "name": "jacket",
-                        "image": "###",
-                        "quantity": "2",
-                        "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "price": 320.00,
+                        "description": "No one likes Numb feet! keep you feet warm on the −364 days with the patented Hoth Boots"
                     }
                 ]
             },
             {
-                "name": "Active wear",
+                "name": "Sith Wear",
                 "items": [
                     {
-                        "name": "running shorts",
-                        "image": "###",
+                        "name": "Sith Robe",
+                        "image": "/img/chad/sith-robe.jpg",
                         "quantity": "2",
-                        "category": "active clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "clothing",
+                        "price": 1000.50,
+                        "description": "Nothing says Dark side like the robe of a Sith Lord!"
                     },
                     {
-                        "name": "running shoes",
-                        "image": "###",
+                        "name": "Battle Droid Mk1",
+                        "image": "/img/chad/sith-bd.jpg",
                         "quantity": "2",
-                        "category": "active clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "armament",
+                        "price": 6000.00,
+                        "description": "Have an enemy that needs to be disposed of send the droid 100% satisfaction or your money back."
                     },
                     {
-                        "name": "towel",
-                        "image": "###",
+                        "name": "Tie Fighter",
+                        "image": "/img/chad/tiefighter.jpg",
                         "quantity": "2",
-                        "category": "active clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "armament",
+                        "price": 60.50,
+                        "description": "Nothing says empire like rolling into battle in a Empire Tie fighter."
                     }
                 ]
             }

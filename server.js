@@ -126,7 +126,7 @@ app.get('/aisles', async (req, res) => {
 });
 
 
-app.get('/items/:id', async (req, res) => {
+app.get('/items/:id', aisleChecks ,async (req, res) => {
     const item = await Item.findByPk(req.params.id, {
         include: {
             model: Aisle,

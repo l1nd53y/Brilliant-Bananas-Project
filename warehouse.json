@@ -73,71 +73,71 @@
     },
     {
         "name": "Sharon",
-        "image": "###",
+        "image": "/img/Sharon2.jpg",
         "aisle": [
             {
-                "name": "Fasion",
+                "name": "Fashion",
                 "items": [
                     {
-                        "name": "shirt",
-                        "image": "###",
-                        "quantity": "2",
-                        "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "name": "Crocs",
+                        "image": "/img/Shoes.jpg",
+                        "quantity": "1",
+                        "category": "shoes",
+                        "price": 60.00,
+                        "description": "Yellow bedazzled with Gold, comfortable fit"
                     },
                     {
-                        "name": "pants",
-                        "image": "###",
-                        "quantity": "2",
+                        "name": "Padded Banana Jacket",
+                        "image": "/img/jacket.jpg",
+                        "quantity": "1",
                         "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "price": 40.00,
+                        "description": "yellow padded jacket with banana print all over, stand out in a crowd!"
                     },
                     {
-                        "name": "socks",
-                        "image": "###",
-                        "quantity": "2",
+                        "name": "Toe Socks",
+                        "image": "/img/socks.jpg",
+                        "quantity": "1",
                         "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "price": 8.00,
+                        "description": "Enhanced levels of stability and grip.Three-dimensional knitting method ensures a natural fit that’s easy to slip on. "
                     },
                     {
-                        "name": "jacket",
-                        "image": "###",
-                        "quantity": "2",
+                        "name": "Dolce Gabanna pants",
+                        "image": "/img/pants.jpg",
+                        "quantity": "1",
                         "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "price": 55.00,
+                        "description": "Banana Print Denim Capri Jeans"
                     }
                 ]
             },
             {
-                "name": "House Goods",
+                "name": "Home Decor",
                 "items": [
                     {
-                        "name": "Mixer",
-                        "image": "###",
-                        "quantity": "2",
-                        "category": "home",
-                        "price": 6.50,
-                        "description": "item description"
+                        "name": "Rocking Chair",
+                        "image": "/img/banana_chair.jpg",
+                        "quantity": "1",
+                        "category": "Home",
+                        "price": 125.00,
+                        "description": "Recliner Rocking Chair, Removable and Washable."
                     },
                     {
-                        "name": "Metal Bowl",
-                        "image": "###",
-                        "quantity": "2",
-                        "category": "home",
-                        "price": 6.50,
-                        "description": "item description"
+                        "name": "Canvas Wall Art",
+                        "image": "/img/wall_art.jpg",
+                        "quantity": "1",
+                        "category": "Home",
+                        "price": 40.00,
+                        "description": "100% premium canvas, made with the best materials, ensuring longer lifespan and durability.Very Eye Catching!!"
                     },
                     {
-                        "name": "Spoon",
-                        "image": "###",
-                        "quantity": "2",
-                        "category": "home",
-                        "price": 6.50,
-                        "description": "item description"
+                        "name": "Shower Curtain",
+                        "image": "/img/shower_curtain.jpg",
+                        "quantity": "1",
+                        "category": "Home",
+                        "price": 12.00,
+                        "description": "Tropical Shower Curtain with banana shaped hooks, designed to be used with or without a liner.Have a tropical experience in your shower!!!"
                     }
                 ]
             }

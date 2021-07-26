@@ -13,5 +13,9 @@
             <script>
   document.write('<a href="' + document.referrer + '"><button class="button">❮ Back</button></a>');
 </script>
+<form method="post" action="/items/{{item.id}}?_method=DELETE">
+<input type="hidden" name="_method" value="DELETE">
+<button type="submit">Delete item</button>
+</form>
         </div>
 </div>

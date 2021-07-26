@@ -1,16 +1,14 @@
-//Debug format: console.log(`🐛 warehouse:`, warehouses);
-
 const express = require("express");
-const { check, validationResult } = require("express-validator");
-const Handlebars = require("handlebars");
-const expressHandlebars = require("express-handlebars");
-const {
-  allowInsecurePrototypeAccess,
-} = require("@handlebars/allow-prototype-access");
+const { check, validationResult } = require('express-validator');
+const Handlebars = require('handlebars')
+const expressHandlebars = require('express-handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const methodOverride = require('method-override');
 
-const { Warehouse } = require("./models/Warehouse");
-const { Aisle } = require("./models/Aisle");
-const { Item } = require("./models/Item");
+
+const {Warehouse} = require('./models/Warehouse');
+const {Aisle} = require('./models/Aisle');
+const {Item} = require('./models/Item');
 
 const initialiseDb = require("./initialiseDb");
 initialiseDb();
@@ -22,6 +20,7 @@ const idCheck = [check("id").isNumeric().withMessage("id must be a number")];
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 //Configures handlebars library to work well w/ Express + Sequelize model
 const handlebars = expressHandlebars({
@@ -49,6 +48,7 @@ const warehouseChecks = [
   check("name").isLength({ max: 50 }).withMessage("Max length 50 char"),
   check("id").isNumeric().withMessage("id must be a number"),
 ];
+
 
 app.get("/warehouses", async (req, res) => {
   const warehouses = await Warehouse.findAll();
@@ -240,6 +240,14 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
     res.status(400).send("Failed to Create and find new Item");
   }
 });
+
+// Route to delete item from warehouse
+app.delete('/items/:id', async (req, res) => {
+    await Item.destroy({
+        where : {id : req.params.id}
+    })
+    res.redirect('/warehouses');
+})
 
 // app.get('/items', async (req, res) => {
 //     const items = await Item.findAll();

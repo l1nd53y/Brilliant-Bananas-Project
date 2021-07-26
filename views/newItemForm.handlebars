@@ -1,4 +1,4 @@
-<form action="/new-item" method="post" >
+<form action="/new-item-form/asile/{{ID}}" method="post" >
     <label for="name">Item Name:</label><br>
     <input type="text" id="name" name="name" required><br><br>
 
@@ -11,16 +11,17 @@
     <label for="price">Price:</label><br>
     <input type="text" id="price" name="price" required><br><br>
 
-    <label for="price">Category:</label><br>
-    <input type="text" id="price" name="price" required><br><br>
+    <label for="category">Category:</label><br>
+    <input type="text" id="category" name="category" required><br><br>
+    <input type="hidden" id="AisleId" name="AisleId" value={{ID}}>
 
-    <label for="browser">Choose your category:</label>
+    {{!-- <label for="browser">Choose your category:</label>
     <input list="browsers" name="browser" id="browser">
     <datalist id="Water sports">
     <option value="Baseball">
     <option value="Kitchen Dining">
     <option value="Accessories">
-</datalist>
-
-    <button type="submit">Submit a new item!</button>
+    </datalist> --}}
+    <p>Asile ID: {{ID}}</p>
+<button type="submit">Submit a new item!</button>
 </form>

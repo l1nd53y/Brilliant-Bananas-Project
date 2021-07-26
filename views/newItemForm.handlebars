@@ -1,3 +1,23 @@
+{{!-- <form action="/new-item" method="post" >
+    <label for="name">Item Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="image">Image URL:</label><br>
+    <input type="text" id="image" name="image" required><br><br>
+
+    <label for="description">Description:</label><br>
+    <input type="text" id="description" name="description" required><br><br>
+
+    <label for="price">Price:</label><br>
+    <input type="text" id="price" name="price" required><br><br>
+
+    <label for="price">Category:</label><br>
+    <input type="text" id="price" name="price" required><br><br>
+
+    <button type="submit">Submit a new item!</button>
+</form> --}}
+
+
 <form action="/new-item" method="post" id="form">
     <div class="container" id ="myDiv">
         <div class="card">
@@ -15,14 +35,14 @@
                 <input type="text" class=" form-control" id="category" name="category" placeholder="Enter Category" autocomplete="off" required>
     
                 <label id="priceId" for="price">Enter price:</label>
-                <input type="text" id="price" class="w-30 form-control" name="price" placeholder="$" class="form-control">
+                <input type="text" id="price" class="w-30 form-control" name="price" placeholder="$"  required autocomplete="off">
                     
                 <label id ="descriptionId" for="description">Description:</label>
-                <textarea class="form-control w-70" id="description" name:"description" placeholder="Description" rows="3" required></textarea>
+                <textarea class="form-control w-70" id="description" name="description" placeholder="Description" rows="3" required></textarea>
                 <br>
                 <br>
                 
-            <div class="form-group row">
+            <div class="container">
                 <div class="col-sm-10">
                     <a class="btn" href="/items/{{id}}"><button type="button" id="button" class="btn btn-success">Add Item</button></a>
                     <button type="button" id="resetbutton" class="btn btn-primary">Reset Item</button>

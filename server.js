@@ -93,22 +93,24 @@ app.patch('/warehouses/:id', async (req, res) => {
     res.sendStatus(200);
 });
 
-app.get('/new-form', (req, res) => {
+//new warehouse form 
+app.get('/new-warehouse-form', (req, res) => {
     console.log()
     res.render('newWarehouseForm');
 })
 
-app.post('/new-warehouse-form', async (req, res) => {
-    const newWarehouse = await Warehouse.create(req.body);
-    const warehouse= await Warehouse.findByPk(newWarehouse.id);
+// app.post('/new-warehouse-form', async (req, res) => {
+//     const newWarehouse = await Warehouse.create(req.body);
+//     const warehouse= await Warehouse.findByPk(newWarehouse.id);
 
-    if(warehouse) {
-        res.render('warehosue', {warehouse});
-    } else {
-        console.log("No warehouse created.")
-    }
-})
+//     if(warehouse) {
+//         res.render('warehosue', {warehouse});
+//     } else {
+//         console.log("No warehouse created.")
+//     }
+// })
 
+//view added warehouse after submitting the form
 app.post('/new-warehouse', async (req, res) => {
     const newWarehouse = await Warehouse.create(req.body);
     const foundWarehouse = await Warehouse.findByPk(newWarehouse.id);
@@ -120,6 +122,23 @@ app.post('/new-warehouse', async (req, res) => {
     }
 });
 
+//D
+app.delete('/warehouse/:id',
+[
+    check('id')
+        .isNumeric().withMessage('ID must be a number')
+        .matches(/^[A-Za-z0-9 .,'!&]+$/).withMessage('Special Char not allowed')//dont think needed if it is already checking for number
+    ],
+    async (req, res) =>{
+        const err = validationResult(req);
+        if(!err.isEmpty()){
+            return res.status(400).json({error : err.array()});
+        }
+        await Warehouse.destroy({
+            where : {id : req.params.id}
+        });
+                return res.status(400).json({error : err.array()});
+});
 /**
     * Aisle(s) Routes
     *  GET, PUT, POST, PUT, DELETE

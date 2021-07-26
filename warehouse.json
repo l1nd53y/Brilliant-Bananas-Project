@@ -145,14 +145,14 @@
     },
     {
         "name": "Afreen",
-        "image": "/img/download1.png",
+        "image": "img/Afreen/sloan-play-kitchen-j.jpg",
         "aisle": [
             {
-                "name": "Makeup Products",
+                "name": "Makeup",
                 "items": [
                     {
-                        "name": "HUDA BEAUTY Nude Obsessions Eyeshadow Palette",
-                        "image": "/img/hudabeauty.jpg",
+                        "name": "HUDA BEAUTY Eyeshadow Palette",
+                        "image": "/img/Afreen/hudabeauty.jpg",
                         "quantity": "2",
                         "category": "makeup",
                         "price": 45.50,
@@ -160,7 +160,7 @@
                     },
                     {
                         "name": "Skin Transformation Cream",
-                        "image": "/img/skincream.jpg",
+                        "image": "/img/Afreen/skincream.jpg",
                         "quantity": "2",
                         "category": "skin care",
                         "price": 35.50,
@@ -168,7 +168,7 @@
                     },
                     {
                         "name": "Liquid Lash Extensions Mascara",
-                        "image": "/img/mascara.png",
+                        "image": "/img/Afreen/lancome.webp",
                         "quantity": "2",
                         "category": "eye product",
                         "price": 26.50,
@@ -176,7 +176,7 @@
                     },
                     {
                         "name": "MAC Lipstick Trio",
-                        "image": "/img/lipstick.jpg",
+                        "image": "/img/Afreen/lipstick.jpg",
                         "quantity": "2",
                         "category": "lip product",
                         "price": 36.50,
@@ -186,31 +186,31 @@
                 ]
             },
             {
-                "name": "Kids",
+                "name": "Toys",
                 "items": [
                     {
-                        "name": "Sherpa Lined Hoodie",
-                        "image": "/img/kidsjacket.jpg",
+                        "name": "LEGO Marvel Spider-Man Attack on the Spider Lair",
+                        "image": "/img/Afreen/LEGOAttackonSpiderLair.jpg",
                         "quantity": "2",
-                        "price": 16.50,
-                        "category": "kids",
-                        "description": "Kids love zipping into the warmth and softness of this cozy hoodie with its cushioned French Terry outside and microplush sherpa lining inside."
+                        "price": 46.50,
+                        "category": "toys",
+                        "description": "Inside the Spider Lair, they’ll find different play areas including a basketball net with basketball launcher, skateboard and quarter pipe, hi-tech command center, and the Spider-Cycle."
                     },
                     {
-                        "name": "Purse for Little Girls Dress Up Jewelry",
-                        "image": "/img/purse.jpg",
+                        "name": "Hot Wheels Toxic Snake Strike",
+                        "image": "/img/Afreen/hotwheels.jpg",
                         "quantity": "2",
-                        "category": "girls",
-                        "price": 15.25,
-                        "description": "Perfect Size for Little Girls.It is lightweight and roomy enough for her jewelries, pretend makeups, or mini items. It comes with an adjustable shoulder strap, could knot it for the perfect length for each girls."
+                        "category": "toys",
+                        "price": 55.25,
+                        "description": "This easy to set up Hot Wheels playset includes one Hot Wheels vehicle, slime and a giant cobra that must be stopped! Once it’s ready to go, place the Hot Wheels car into the launch pad and slam down to send it flying."
                     },
                     {
-                        "name": "FunKidz Twister Hair Clip Colorful Spiral",
-                        "image": "/img/hair.jpg",
+                        "name": "Sloan Play Kitchen",
+                        "image": "/img/Afreen/sloan-play-kitchen-j.jpg",
                         "quantity": "2",
-                        "category": "girls",
-                        "price":6.50,
-                        "description":" Kids Hair styling tool for long girls hair twister braids can be used to hold your bangs, dreads, DIY hair, curly hair, pony tail and braiding. Design your own haircut by creativity and imagination to show personality."
+                        "category": "toys",
+                        "price":156.50,
+                        "description":" Covered on all sides in a child-safe, water-based paint in White.Features a pretend sink, oven, fridge and set of salt and pepper shakers.Faucet handles and knobs turn and doors open.Intended for children aged 3+."
                     }
                 ]
             }

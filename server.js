@@ -3,6 +3,7 @@ const { check, validationResult } = require('express-validator');
 const Handlebars = require('handlebars')
 const expressHandlebars = require('express-handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const methodOverride = require('method-override');
 
 
 const {Warehouse} = require('./models/Warehouse');
@@ -19,6 +20,7 @@ const port = 3000;
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 //Configures handlebars library to work well w/ Express + Sequelize model
 const handlebars = expressHandlebars({
@@ -55,7 +57,7 @@ app.get('/warehouses/:id', async (req, res) => {
         }
     });
     //console.log(`🐛 Ailse:`, warehouse);
-    //res.json(warehouse);
+    // res.json(warehouse);
     res.render('warehouse', { warehouse });
 
 });
@@ -179,6 +181,13 @@ app.post('/new-item-form/asile/:ID', itemValidation, async (req, res) => {
     res.status(200).withMessage('Created Success');
 });
 
+// Route to delete item from warehouse
+app.delete('/items/:id', async (req, res) => {
+    await Item.destroy({
+        where : {id : req.params.id}
+    })
+    res.redirect('/warehouses');
+})
 
 // app.get('/items', async (req, res) => {
 //     const items = await Item.findAll();

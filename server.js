@@ -155,24 +155,6 @@ app.get("/aisles", async (req, res) => {
   res.render("aisles", { aisles });
 });
 
-app.get("/items/:id", idCheck, async (req, res) => {
-  //Input Validation
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-
-  //get item by id
-  const item = await Item.findByPk(req.params.id, {
-    include: {
-      model: Aisle,
-      include: Item,
-    },
-  });
-  res.render("item", { item });
-  // res.json(item);
-});
-
 //Aisle Routes -(option if we add just a single Aisle view)
 app.get("/aisles/:id", aisleChecks, async (req, res) => {
   //Input Validation
@@ -191,8 +173,33 @@ app.get("/aisles/:id", aisleChecks, async (req, res) => {
   //res.render();
 });
 
+
+
 /**
- * Item(s) Routes
+ * Item Route(s)
+ *  GET, PUT, POST, PUT, DELETE
+ **/
+app.get("/items/:id", idCheck, async (req, res) => {
+  //Input Validation
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  //get item by id
+  const item = await Item.findByPk(req.params.id, {
+    include: {
+      model: Aisle,
+      include: Item,
+    },
+  });
+  res.render("item", { item });
+  // res.json(item);
+});
+
+
+/**
+ * New Item Route(s)
  *  GET, PUT, POST, PUT, DELETE
  **/
 

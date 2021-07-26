@@ -1,7 +1,7 @@
 [
     {
         "name": "Lindsey",
-        "image": "/img/bananas.png",
+        "image": "/img/dogbanana.gif",
         "aisle": [
             {
                 "name": "Snacks",
@@ -15,57 +15,57 @@
                         "description": "Nestle brings a unique green tea matcha flavor of Japan with this Green Tea Kit Kat. Japan is famous for its 350+ varieties of KitKat flavors, often favored for gifting and tourists to bring an exciting souvenir from Japan. This Kit Kat covered in smooth Matcha Green Tea and filled with the delicious wafer is made with no artificial colors and all-natural flavors."
                     },
                     {
-                        "name": "Jubes Nata De Coco Drink Lychee Flavor",
+                        "name": "Jubes Nata De Coco Drink (Lychee)",
                         "image": "/img/jubes.jpg",
                         "quantity": "7",
-                        "category": "clothing",
+                        "category": "Drink",
                         "price": 7.27,
                         "description": "Jubes is a tasty, fruit-based dessert that’s high in fiber, but has zero grams of cholesterol and fat. It’s based around a sweet tasting dish called Nata-de-Coco, which is very popular among the health-conscious. These fruity, juicy treats can be incorporated into mixed drinks, desserts such as ice cream and jello, or they can just be eaten by themselves."
                     },
                     {
-                        "name": "socks",
-                        "image": "###",
+                        "name": "Dunkaroos",
+                        "image": "/img/dunkaroos.jpg",
                         "quantity": "7",
-                        "category": "clothing",
+                        "category": "Cookie",
                         "price": 7.27,
-                        "description": "item description"
+                        "description": "Dunkaroos are a snack food from Betty Crocker, first launched in 1990. It consists of a snack-sized package containing cookies and frosting; as the name implies, the cookies are meant to be dunked into the frosting before eating. Individual snack packages contain about ten small cookies and one cubic inch of frosting."
                     },
                     {
-                        "name": "jacket",
-                        "image": "###",
+                        "name": "Waffle Crisp",
+                        "image": "/img/wafflecrisp.jpg",
                         "quantity": "7",
-                        "category": "clothing",
+                        "category": "Cereal",
                         "price": 7.27,
-                        "description": "item description"
+                        "description": "Waffle Crisp cereal is back! With the same great taste and fun waffle shape you remember, we hope you love the return of Waffle Crisp cereal as much as we do."
                     }
                 ]
             },
             {
-                "name": "pet",
+                "name": "Plushies",
                 "items": [
                     {
-                        "name": "dog bone",
-                        "image": "###",
+                        "name": "Rilakkuma",
+                        "image": "/img/rilakkuma.jpg",
                         "quantity": "7",
-                        "category": "animal",
+                        "category": "Bear",
                         "price": 7.27,
-                        "description": "item description"
+                        "description": "This Rilakkuma Plush is so fuzzy!"
                     },
                     {
-                        "name": "dog leash",
-                        "image": "###",
+                        "name": "Snorlax",
+                        "image": "/img/snorlax.jpg",
                         "quantity": "7",
-                        "category": "animal",
+                        "category": "Pokemon",
                         "price": 7.27,
-                        "description": "item description"
+                        "description": "This Snorlax Lapse of Memory Plush is so big and huggable."
                     },
                     {
-                        "name": "food bowl",
-                        "image": "###",
+                        "name": "Pusheen",
+                        "image": "/img/pusheen.png",
                         "quantity": "7",
                         "price": 7.27,
-                        "category": "animal",
-                        "description": "item description"
+                        "category": "Cat",
+                        "description": "This Pusheen Plush is so cute! Display her on your bed or sofa, great for cuddling!"
                     }
                 ]
             }

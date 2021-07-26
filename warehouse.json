@@ -145,136 +145,138 @@
     },
     {
         "name": "Afreen",
-        "image": "img/Afreen/sloan-play-kitchen-j.jpg",
+        "image": "###",
         "aisle": [
             {
-                "name": "Makeup",
+                "name": "Winter Clothing",
                 "items": [
                     {
-                        "name": "HUDA BEAUTY Eyeshadow Palette",
-                        "image": "/img/Afreen/hudabeauty.jpg",
+                        "name": "shirt",
+                        "image": "###",
                         "quantity": "2",
-                        "category": "makeup",
-                        "price": 45.50,
-                        "description": "Huda’s favorite, Nude Medium’s versatile palette is a rich mix of spicy."
+                        "category": "clothing",
+                        "price": 6.50,
+                        "description": "item description"
                     },
                     {
-                        "name": "Skin Transformation Cream",
-                        "image": "/img/Afreen/skincream.jpg",
+                        "name": "pants",
+                        "image": "###",
                         "quantity": "2",
-                        "category": "skin care",
-                        "price": 35.50,
-                        "description": "A hydrating and moisturizing face cream that helps reveal plumped and radiant-looking skin with bakuchiol, malachite, ceramides, and hyaluronic acid."
+                        "category": "clothing",
+                        "price": 6.50,
+                        "description": "item description"
                     },
                     {
-                        "name": "Liquid Lash Extensions Mascara",
-                        "image": "/img/Afreen/lancome.webp",
+                        "name": "socks",
+                        "image": "###",
                         "quantity": "2",
-                        "category": "eye product",
-                        "price": 26.50,
-                        "description": "Instantly create the look of lash extensions with this award-winning, best-selling mascara powered by technology that won't clump, flake or smudge. "
+                        "category": "clothing",
+                        "price": 6.50,
+                        "description": "item description"
                     },
                     {
-                        "name": "MAC Lipstick Trio",
-                        "image": "/img/Afreen/lipstick.jpg",
+                        "name": "jacket",
+                        "image": "###",
                         "quantity": "2",
-                        "category": "lip product",
-                        "price": 36.50,
-                        "description": "Provides immediate and long-term hydration.A comfortable formula that blurs lines and smooths lips.It is lightweight."
+                        "category": "clothing",
+                        "price": 6.50,
+                        "description": "item description"
                     }
                 ]
             },
             {
-                "name": "Toys",
+                "name": "Gardening",
                 "items": [
                     {
-                        "name": "LEGO Marvel Spider-Man Attack on the Spider Lair",
-                        "image": "/img/Afreen/LEGOAttackonSpiderLair.jpg",
+                        "name": "Shovel",
+                        "image": "###",
                         "quantity": "2",
-                        "price": 46.50,
-                        "category": "toys",
-                        "description": "Inside the Spider Lair, they’ll find different play areas including a basketball net with basketball launcher, skateboard and quarter pipe, hi-tech command center, and the Spider-Cycle."
+                        "price": 6.50,
+                        "category": "garden",
+                        "description": "item description"
                     },
                     {
-                        "name": "Hot Wheels Toxic Snake Strike",
-                        "image": "/img/Afreen/hotwheels.jpg",
+                        "name": "Flower Pot",
+                        "image": "###",
                         "quantity": "2",
-                        "category": "toys",
-                        "price": 55.25,
-                        "description": "This easy to set up Hot Wheels playset includes one Hot Wheels vehicle, slime and a giant cobra that must be stopped! Once it’s ready to go, place the Hot Wheels car into the launch pad and slam down to send it flying."
+                        "category": "garden",
+                        "price": 6.50,
+                        "description": "item description"
                     },
                     {
-                        "name": "Sloan Play Kitchen",
-                        "image": "/img/Afreen/sloan-play-kitchen-j.jpg",
+                        "name": "Soile",
+                        "image": "###",
                         "quantity": "2",
-                        "category": "toys",
-                        "price": 156.50,
-                        "description": " Covered on all sides in a child-safe, water-based paint in White.Features a pretend sink, oven, fridge and set of salt and pepper shakers.Faucet handles and knobs turn and doors open.Intended for children aged 3+."
-                    }
-                ]
-            },
-            {
-                "name": "Chad",
-                "image": "/img/chad/Star-wars-logo.jpg",
-                "aisle": [
-                    {
-                        "name": "Hoth Clothing",
-                        "items": [
-                            {
-                                "name": "Hoth Parka",
-                                "image": "/img/chad/hoth-parka.jpeg",
-                                "quantity": "2",
-                                "category": "coat",
-                                "price": 600.50,
-                                "description": "Don't be stuck outside on a day or night on Hoth a Parka or you'll need to sacrifice your Tauntaun!"
-                            },
-                            {
-                                "name": "Hoth Com Gloves",
-                                "image": "/img/chad/hoth-glove.jpg",
-                                "quantity": "2",
-                                "category": "",
-                                "price": 200.50,
-                                "description": "All the warmth you could want for your hands. plus built in communication device..what more could you want!"
-                            },
-                            {
-                                "name": "Hoth Boots",
-                                "image": "/img/chad/hoth-boot.jpg",
-                                "quantity": "2",
-                                "category": "clothing",
-                                "price": 320.00,
-                                "description": "No one likes Numb feet! keep you feet warm on the −364 days with the patented Hoth Boots"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Sith Wear",
-                        "items": [
-                            {
-                                "name": "Sith Robe",
-                                "image": "/img/chad/sith-robe.jpg",
-                                "quantity": "2",
-                                "category": "clothing",
-                                "price": 1000.50,
-                                "description": "Nothing says Dark side like the robe of a Sith Lord!"
-                            },
-                            {
-                                "name": "Battle Droid Mk1",
-                                "image": "/img/chad/sith-bd.jpg",
-                                "quantity": "2",
-                                "category": "armament",
-                                "price": 6000.00,
-                                "description": "Have an enemy that needs to be disposed of send the droid 100% satisfaction or your money back."
-                            },
-                            {
-                                "name": "Tie Fighter",
-                                "image": "/img/chad/tiefighter.jpg",
-                                "quantity": "2",
-                                "category": "armament",
-                                "price": 60.50,
-                                "description": "Nothing says empire like rolling into battle in a Empire Tie fighter."
-                            }
-                        ]
+                        "category": "garden",
+                        "price": 6.50,
+                        "description": "item description"
                     }
                 ]
             }
         ]
+    },
+    {
+        "name": "Chad",
+        "image": "/img/chad/Star-wars-logo.jpg",
+        "aisle": [
+            {
+                "name": "Hoth Clothing",
+                "items": [
+                    {
+                        "name": "Hoth Parka",
+                        "image": "/img/chad/hoth-parka.jpeg",
+                        "quantity": "2",
+                        "category": "coat",
+                        "price": 600.50,
+                        "description": "Don't be stuck outside on a day or night on Hoth a Parka or you'll need to sacrifice your Tauntaun!"
+                    },
+                    {
+                        "name": "Hoth Com Gloves",
+                        "image": "/img/chad/hoth-glove.jpg",
+                        "quantity": "2",
+                        "category": "",
+                        "price": 200.50,
+                        "description": "All the warmth you could want for your hands. plus built in communication device..what more could you want!"
+                    },
+                    {
+                        "name": "Hoth Boots",
+                        "image": "/img/chad/hoth-boot.jpg",
+                        "quantity": "2",
+                        "category": "clothing",
+                        "price": 320.00,
+                        "description": "No one likes Numb feet! keep you feet warm on the −364 days with the patented Hoth Boots"
+                    }
+                ]
+            },
+            {
+                "name": "Sith Wear",
+                "items": [
+                    {
+                        "name": "Sith Robe",
+                        "image": "/img/chad/sith-robe.jpg",
+                        "quantity": "2",
+                        "category": "clothing",
+                        "price": 1000.50,
+                        "description": "Nothing says Dark side like the robe of a Sith Lord!"
+                    },
+                    {
+                        "name": "Battle Droid Mk1",
+                        "image": "/img/chad/sith-bd.jpg",
+                        "quantity": "2",
+                        "category": "armament",
+                        "price": 6000.00,
+                        "description": "Have an enemy that needs to be disposed of send the droid 100% satisfaction or your money back."
+                    },
+                    {
+                        "name": "Tie Fighter",
+                        "image": "/img/chad/tiefighter.jpg",
+                        "quantity": "2",
+                        "category": "armament",
+                        "price": 60.50,
+                        "description": "Nothing says empire like rolling into battle in a Empire Tie fighter."
+                    }
+                ]
+            }
+        ]
+    }
+]

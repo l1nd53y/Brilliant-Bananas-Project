@@ -1,14 +1,14 @@
 [
     {
         "name": "Lindsey",
-        "image": "/img/dogbanana.gif",
+        "image": "/img/lindsey/dogbanana.gif",
         "aisle": [
             {
                 "name": "Snacks",
                 "items": [
                     {
                         "name": "Matcha Kit Kat",
-                        "image": "/img/matchakitkat.jpg",
+                        "image": "/img/lindsey/matchakitkat.jpg",
                         "quantity": "7",
                         "category": "Candy",
                         "price": 7.27,
@@ -16,7 +16,7 @@
                     },
                     {
                         "name": "Jubes Nata De Coco Drink (Lychee)",
-                        "image": "/img/jubes.jpg",
+                        "image": "/img/lindsey/jubes.jpg",
                         "quantity": "7",
                         "category": "Drink",
                         "price": 7.27,
@@ -24,7 +24,7 @@
                     },
                     {
                         "name": "Dunkaroos",
-                        "image": "/img/dunkaroos.jpg",
+                        "image": "/img/lindsey/dunkaroos.jpg",
                         "quantity": "7",
                         "category": "Cookie",
                         "price": 7.27,
@@ -32,7 +32,7 @@
                     },
                     {
                         "name": "Waffle Crisp",
-                        "image": "/img/wafflecrisp.jpg",
+                        "image": "/img/lindsey/wafflecrisp.jpg",
                         "quantity": "7",
                         "category": "Cereal",
                         "price": 7.27,
@@ -45,7 +45,7 @@
                 "items": [
                     {
                         "name": "Rilakkuma",
-                        "image": "/img/rilakkuma.jpg",
+                        "image": "/img/lindsey/rilakkuma.jpg",
                         "quantity": "7",
                         "category": "Bear",
                         "price": 7.27,
@@ -53,7 +53,7 @@
                     },
                     {
                         "name": "Snorlax",
-                        "image": "/img/snorlax.jpg",
+                        "image": "/img/lindsey/snorlax.jpg",
                         "quantity": "7",
                         "category": "Pokemon",
                         "price": 7.27,
@@ -61,7 +61,7 @@
                     },
                     {
                         "name": "Pusheen",
-                        "image": "/img/pusheen.png",
+                        "image": "/img/lindsey/pusheen.png",
                         "quantity": "7",
                         "price": 7.27,
                         "category": "Cat",

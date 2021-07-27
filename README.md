@@ -1,7 +1,7 @@
 # Brilliant-Bananas-Project Multiverse Final Inventory Project (Chad, Afreen, Sharon & Lindsey)
 
 # Description of our Project:
-We built a Brilliant Bananas Inventory App for 4 Warehouses.Each warehouse displays a list of all items in each aisle.The user can view details of each item like name, price, description and category by clicking on any specific item from the list. A new item can be added in each aisle by submitting the form. An item can also be removed from the warehouse.
+We built a Brilliant Bananas Inventory App for 4 Warehouses. Each warehouse displays a list of all items in each aisle.The user can view details of each item like name, price, description and category by clicking on any specific item from the list. A new item can be added in each aisle by submitting the form. An item can also be removed from the warehouse.
 
 # Collaborators :
 - Chad
@@ -34,6 +34,7 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Each warehouse displ
 - Create Pull request 
 - git branch -D newbranchname (To delete branch)
 - git branch -d newbranchname
+
   **Other git commands**
 - git fetch origin master
 - git reset --hard origin/main (To overide files)
@@ -45,12 +46,12 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Each warehouse displ
 
  # UML
    - **[Activity Diagram](./UML/activitydiagram/)**
-   - **[Class Diagram](./UML/Warehouse UML/classdiagram.png)**
+   - **[Class Diagram](./UML/Warehouse UML/classdiagram.png/)**
    - **[Wire Frame](./UML/wireframe/)**
-   - **[Schema Design](./UML/Warehouse UML/schemadesign.png)**
-   - **[Sequence Diagram](./UML/Warehouse UML/sequence.png)**
-   - **[Use Case](./UML/Warehouse UML/usecase.png)**
-                 (./UML/Warehouse UML/uml.md)**
+   - **[Schema Design](./UML/Warehouse UML/schemadesign.png/)**
+   - **[Sequence Diagram](./UML/Warehouse UML/sequence.png/)**
+   - **[Use Case](./UML/Warehouse UML/usecase.png/)**
+                 
 
 
 

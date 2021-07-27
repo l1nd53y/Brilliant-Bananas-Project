@@ -19,7 +19,8 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 - Be Respectful with each other
 - Look out and help each other.
 - Communicate and don't get stuck on any blockers for long time.
-- Create new branch for every issue.
+- Create new branch for every issue.Never merge your work on main branch.
+- Inform each other for pull request.
 
 
  # UML

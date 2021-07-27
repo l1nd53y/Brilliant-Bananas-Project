@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express");  //import the express dependency
 const { check, validationResult } = require('express-validator');
 const Handlebars = require('handlebars')
 const expressHandlebars = require('express-handlebars')
@@ -14,9 +14,11 @@ const initialiseDb = require("./initialiseDb");
 initialiseDb();
 
 const app = express();
+//channel for our server to listen to client requests
 const port = 3000; //server port
 const idCheck = [check("id").isNumeric().withMessage("id must be a number")];
 
+// serve static assets from the public/ folder
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -36,7 +38,7 @@ app.set("view engine", "handlebars");
  *  GET, PUT, POST, PUT, DELETE
  **/
 
-//Validation for route
+//Validation for Warehouse routes
 const warehouseChecks = [
   check("name")
     .not()
@@ -50,20 +52,22 @@ const warehouseChecks = [
 ];
 
 
+//Route to retrieve all warehouses
 app.get("/warehouses", async (req, res) => {
+  //goes into the database and looks for all Warehouses
   const warehouses = await Warehouse.findAll();
   //console.log(`🐛 warehouse:`, warehouses);
-  res.render("warehouses", { warehouses });
+  res.render("warehouses", { warehouses }); //render warehouses handlebars (2 args: string name of template, data to put in)
+ // res.json(warehouses)    //server will respond with all the warehouses found in the database
 });
 
+//Route to retrieve warehouse with a specified id 
 app.get("/warehouses/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-
-  //Get warehouse with specified id
   //look up warehouse by primary key from id passed in params
   const warehouse = await Warehouse.findByPk(req.params.id, {
     include: {
@@ -71,21 +75,22 @@ app.get("/warehouses/:id", idCheck, async (req, res) => {
       include: Item,
     },
   });
-  res.render("warehouse", { warehouse });
+  res.render("warehouse", { warehouse }); //displays aisle and items (render warehouse handlebars)
 });
 
+//Route to post warehouses 
 app.post("/warehouses", async (req, res) => {
   //Validate input
   res.sendStatus(201);
 });
 
+//Route to delete warehouse from db with a specified id
 app.delete("/warehouses/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  //Delete warehouse from DB with specified id
   await Warehouse.destroy({
     where: {
       id: req.params.id,
@@ -94,6 +99,7 @@ app.delete("/warehouses/:id", idCheck, async (req, res) => {
   res.sendStatus(200);
 });
 
+//Route to update warehouse with specified id for all properties
 app.put("/warehouses/:id", warehouseChecks, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
@@ -107,6 +113,7 @@ app.put("/warehouses/:id", warehouseChecks, async (req, res) => {
   res.sendStatus(200);
 });
 
+//Route to update a warehouse with specified id for any property
 app.patch("/warehouses/:id", warehouseChecks, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
@@ -120,48 +127,39 @@ app.patch("/warehouses/:id", warehouseChecks, async (req, res) => {
   res.sendStatus(200);
 });
 
-// app.post('/new-warehouse', async (req, res) => {
-//     const newWarehouse = await Warehouse.create(req.body);
-//     const foundWarehouse = await Warehouse.findByPk(newWarehouse.id);
-//     if(foundWarehouse) {
-//        // res.status(201).send('New Warehouse created!!~')
-//         res.render('warehouse',foundWarehouse)
-//     } else {
-//         console.log("Could not create Warehouse~")
-//     }
-// });
 
 /**
  * Aisle(s) Routes
  *  GET, PUT, POST, PUT, DELETE
  **/
+
 //Aisle Validation
 const aisleChecks = [
-  check("name")
+  check("name") //validate name is not empty
     .not()
     .isEmpty()
     .trim()
     .escape()
     .withMessage("Name can not be blank"),
-  check("id").isNumeric().withMessage("id not a number"),
-  check("image").isURL().withMessage("must be Valid URL"),
+  check("id").isNumeric().withMessage("id not a number"), //validate id is numeric
+  check("image").isURL().withMessage("must be Valid URL"), //validate image is url
   check("name")
-    .isLength({ max: 50 })
-    .withMessage("name can't be longer than 50 char"),
+    .isLength({ max: 50 }).withMessage("name can't be longer than 50 char"), //validate name is max 50 characters 
 ];
 
+//Route to retrieve all aisles
 app.get("/aisles", async (req, res) => {
   const aisles = await Aisles.findAll();
   res.render("aisles", { aisles });
 });
 
-//Aisle Routes -(option if we add just a single Aisle view)
+//Aisle Routes -(option if we add just a single Aisle view) 
 app.get("/aisles/:id", aisleChecks, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
-  }
+  } //Get an aisle with specified id
   const aisle = await Aisle.findByPk(req.params.id, {
     include: {
       model: Item,
@@ -172,20 +170,18 @@ app.get("/aisles/:id", aisleChecks, async (req, res) => {
   //res.render();
 });
 
-
-
 /**
  * Item Route(s)
  *  GET, PUT, POST, PUT, DELETE
  **/
+
+//Route to get item with a specified id
 app.get("/items/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-
-  //get item by id
   const item = await Item.findByPk(req.params.id, {
     include: {
       model: Aisle,
@@ -193,7 +189,7 @@ app.get("/items/:id", idCheck, async (req, res) => {
     },
   });
   res.render("item", { item });
-  // res.json(item);
+  // res.json(item); //uncomment when using postman
 });
 
 
@@ -204,28 +200,30 @@ app.get("/items/:id", idCheck, async (req, res) => {
 
 //Validation for route
 const itemValidation = [
-  check("name")
+  check("name")    //validate input name is not empty
     .not()
     .isEmpty()
     .trim()
     .escape()
     .withMessage("Name must be filled in"),
-  check("name").isLength({ max: 50 }).withMessage("Max Lenth of name 50"),
+  check("name").isLength({ max: 50 }).withMessage("Max Lenth of name 50"),//validate name is max 50 chars
   check("name")
     .matches(/^[A-Za-z0-9 .,'!&]+$/)
     .withMessage("Special Char limited"),
-  check("image").isURL().withMessage("Image must be URL"),
+  check("image").isURL().withMessage("Image must be URL"), //validate image url is url
 ];
 
+//Route for new item form
 app.get("/new-item-form/asile/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  res.render("newItemForm", { id: req.params.id });
+  res.render("newItemForm", { id: req.params.id }); //renders a newItemForm handlebars
 });
 
+//Route to post the item details submitted on new item form
 app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
   //console.log('🐛 BUG TEST 🐛:', req.body);
   const errors = validationResult(req);
@@ -247,7 +245,7 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
   }
 });
 
-// Route to delete item from warehouse
+// Route to delete item with a specific id from warehouse
 app.delete('/items/:id', async (req, res) => {
     await Item.destroy({
         where : {id : req.params.id}
@@ -255,17 +253,12 @@ app.delete('/items/:id', async (req, res) => {
     res.redirect('/warehouses');
 })
 
-// app.get('/items', async (req, res) => {
-//     const items = await Item.findAll();
-//     res.render('items', { items });
-// });
-
-// app.get('/items/:id', async (req, res) => {
-// 	const items = await Item.findByPk(req.params.id,);
-// 	res.json({ aisles })
-// })
-
 //Sets the server and listing port
 app.listen(port, () => {
   console.log(`🚀  Server listening at http://localhost:${port} 🚀 `);
 });
+
+//404 redirect
+app.use(function (req, res, next) {
+  res.status(404).redirect('/404.html')
+})

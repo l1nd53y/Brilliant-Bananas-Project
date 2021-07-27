@@ -11,9 +11,27 @@
     background-color: #C2C2C2;
     background-image: url("/img/gradient.jpg");
     background-size: cover;
+    background-attachment: fixed;
     padding: 70px 0;
     border: 0px solid #ffffff;
     text-align: center;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(243, 247, 8, 0.842);
+    height: auto;
+    width: 100vw;
+    font-family: "Open Sans";
+    padding-top: 5px;
+    color: #111;
+  }
+
+  #atag {
+    color: rgb(202, 21, 21);
   }
   
   h1, h3 {
@@ -37,10 +55,14 @@
   }
   
   a {
-    color: #d8c519;
+    color: rgb(202, 21, 21);
     font-family: "Arial", sans-serif;
     font-weight: bold;
     text-decoration: none;
+  }
+
+  span {
+    font-size: 65px;
   }
   
   .grid-container {
@@ -157,6 +179,13 @@ label {
   object-fit: cover;
   padding-bottom: 10px;
   /* border-radius: 20%; */
+}
+
+.rotbanana {
+  width:  10%;
+  height: 10%;
+  object-fit: cover;
+  padding-bottom: 10px;
 }
 
 @media (max-width: 576px) {  

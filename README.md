@@ -23,6 +23,22 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 - Inform each other for pull request.
 - Take breaks in between.
 
+# Git Commands
+- git fetch origin master
+- git reset --hard origin/main (To overide files)
+- git rm -r --cached . (To ignore gitignore on main branch)
+     - git add .
+- git rm --cached db.sqlite
+
+- ** To create branch and pull request
+- git checkout -b newbranchname (create a new branch for each issue) 
+- git branch (To confirm which branch you are on)
+- git add . (To add all the changed files) 
+- git status (To check the status of the files) 
+- git commit -m "message"
+- git push -upstream newbranchname (To push code)
+- Create Pull request 
+- git branch -D newbranchname (To delete branch)
 
  # UML
    - **[Activity Diagram](./UML/activitydiagram/)**

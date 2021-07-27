@@ -1,5 +1,5 @@
 const {sequelize} = require('../db')
-const { Aisle } = require('../models/aisle')
+const { Aisle } = require('../models/aisle') 
 
 describe('Aisles database', () => {
 

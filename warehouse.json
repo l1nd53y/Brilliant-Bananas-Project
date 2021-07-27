@@ -145,71 +145,72 @@
     },
     {
         "name": "Afreen",
-        "image": "###",
+        "image": "img/Afreen/sloan-play-kitchen-j.jpg",
         "aisle": [
             {
-                "name": "Winter Clothing",
+                "name": "Makeup",
                 "items": [
                     {
-                        "name": "shirt",
-                        "image": "###",
+                        "name": "HUDA BEAUTY Eyeshadow Palette",
+                        "image": "/img/Afreen/hudabeauty.jpg",
                         "quantity": "2",
-                        "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "makeup",
+                        "price": 45.50,
+                        "description": "Huda’s favorite, Nude Medium’s versatile palette is a rich mix of spicy."
                     },
                     {
-                        "name": "pants",
-                        "image": "###",
+                        "name": "Skin Transformation Cream",
+                        "image": "/img/Afreen/skincream.jpg",
                         "quantity": "2",
-                        "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "skin care",
+                        "price": 35.50,
+                        "description": "A hydrating and moisturizing face cream that helps reveal plumped and radiant-looking skin with bakuchiol, malachite, ceramides, and hyaluronic acid."
                     },
                     {
-                        "name": "socks",
-                        "image": "###",
+                        "name": "Liquid Lash Extensions Mascara",
+                        "image": "/img/Afreen/lancome.webp",
                         "quantity": "2",
-                        "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "eye product",
+                        "price": 26.50,
+                        "description": "Instantly create the look of lash extensions with this award-winning, best-selling mascara powered by technology that won't clump, flake or smudge. "
                     },
                     {
-                        "name": "jacket",
-                        "image": "###",
+                        "name": "MAC Lipstick Trio",
+                        "image": "/img/Afreen/lipstick.jpg",
                         "quantity": "2",
-                        "category": "clothing",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "lip product",
+                        "price": 36.50,
+                        "description": "Provides immediate and long-term hydration.A comfortable formula that blurs lines and smooths lips.It is lightweight."
+                    
                     }
                 ]
             },
             {
-                "name": "Gardening",
+                "name": "Toys",
                 "items": [
                     {
-                        "name": "Shovel",
-                        "image": "###",
+                        "name": "LEGO Marvel Spider-Man Attack on the Spider Lair",
+                        "image": "/img/Afreen/LEGOAttackonSpiderLair.jpg",
                         "quantity": "2",
-                        "price": 6.50,
-                        "category": "garden",
-                        "description": "item description"
+                        "price": 46.50,
+                        "category": "toys",
+                        "description": "Inside the Spider Lair, they’ll find different play areas including a basketball net with basketball launcher, skateboard and quarter pipe, hi-tech command center, and the Spider-Cycle."
                     },
                     {
-                        "name": "Flower Pot",
-                        "image": "###",
+                        "name": "Hot Wheels Toxic Snake Strike",
+                        "image": "/img/Afreen/hotwheels.jpg",
                         "quantity": "2",
-                        "category": "garden",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "toys",
+                        "price": 55.25,
+                        "description": "This easy to set up Hot Wheels playset includes one Hot Wheels vehicle, slime and a giant cobra that must be stopped! Once it’s ready to go, place the Hot Wheels car into the launch pad and slam down to send it flying."
                     },
                     {
-                        "name": "Soile",
-                        "image": "###",
+                        "name": "Sloan Play Kitchen",
+                        "image": "/img/Afreen/sloan-play-kitchen-j.jpg",
                         "quantity": "2",
-                        "category": "garden",
-                        "price": 6.50,
-                        "description": "item description"
+                        "category": "toys",
+                        "price":156.50,
+                        "description":" Covered on all sides in a child-safe, water-based paint in White.Features a pretend sink, oven, fridge and set of salt and pepper shakers.Faucet handles and knobs turn and doors open.Intended for children aged 3+."
                     }
                 ]
             }

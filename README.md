@@ -46,11 +46,11 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses. Each warehouse disp
 
  # UML
    - **[Activity Diagram](./UML/activitydiagram/)**
-   - **[Class Diagram](./UML/Warehouse UML/classdiagram.png/)**
+   - **[Class Diagram](./UML/Warehouse UML/)**
    - **[Wire Frame](./UML/wireframe/)**
-   - **[Schema Design](./UML/Warehouse UML/schemadesign.png/)**
-   - **[Sequence Diagram](./UML/Warehouse UML/sequence.png/)**
-   - **[Use Case](./UML/Warehouse UML/usecase.png/)**
+   - **[Schema Design](./UML/Warehouse UML/)**
+   - **[Sequence Diagram](./UML/Warehouse UML/)**
+   - **[Use Case](./UML/Warehouse UML/)**
                  
 
 

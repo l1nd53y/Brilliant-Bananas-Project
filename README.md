@@ -1,5 +1,4 @@
-# Brilliant-Bananas-Project
- Final Project Multiverse
+# Brilliant-Bananas-Project Multiverse Final Inventory Project (Chad, Afreen, Sharon & Lindsey)
 
  - # UML
    - **[Activity Diagram](./UML/activitydiagram/)**
@@ -8,3 +7,6 @@
    - **[Schema Design](./UML/Schema%20design)**
    - **[Sequence Diagram](./UML/Sequence%20diagram)**
    - **[Use Case](./UML/Usecase%20diagram)**
+
+- # Install run
+-  Clone > npm instlal > node bin/populateDB.js > node server.js

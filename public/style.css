@@ -15,6 +15,23 @@
     border: 0px solid #ffffff;
     text-align: center;
   }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(243, 247, 8, 0.842);
+    height: auto;
+    width: 100vw;
+    font-family: "Open Sans";
+    padding-top: 5px;
+    color: #111;
+  }
+
+  #atag {
+    color: rgb(202, 21, 21);
+  }
   
   h1, h3 {
     font-family: "Arial", sans-serif;

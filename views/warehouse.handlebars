@@ -1,19 +1,23 @@
 <div class="grid-item">
 <div class="container">
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-	{{#each warehouse.Aisles}}
+	{{#each warehouse.Aisles}} <!--for each aisle-->
   <div class="col mb-4">
     <div class="card">
-	<h2 class="card-title"><u>{{this.name}}</u></h2>
+	<h2 class="card-title"><u>{{this.name}}</u></h2> <!--Display aisle name-->
       
       <div class="card-body">
-          {{#each this.Items}}
+          {{#each this.Items}} <!--Display item images-->
 		<a href="/items/{{id}}"><img src="{{image}}" class="card-img-top warehouse-img"></a>
         {{/each}}<br>
-        <a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="btn btn-info additem-btn">Add item</button></a>
+
+        <!--Add item button -to add new item for each aisle-->
+        <a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="btn btn-warning additem-btn">Add item</button></a>
       </div>
     </div>
-  </div><script>
+  </div>
+  <!--Back button- back to warehouses-->
+  <script> 
   document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
 </script>{{/each}}
 </div>

@@ -10,13 +10,16 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 - Afreen
 
 # Install run
--  Clone > npm install > node bin/populateDB.js > node server.js
+-  Clone 
+- npm install 
+- node bin/populateDB.js 
+- node server.js
 
 # Team Constitution:
--Be Respectful with each other
--Look out and help each other.
--Communicate and don't get stuck on any blockers for long time through chat or slack.
--Create new branch for every issue.
+- Be Respectful with each other
+- Look out and help each other.
+- Communicate and don't get stuck on any blockers for long time through chat or slack.
+- Create new branch for every issue.
 
 
  # UML

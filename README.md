@@ -9,4 +9,4 @@
    - **[Use Case](./UML/Usecase%20diagram)**
 
 - # Install run
--  Clone > npm instlal > node bin/populateDB.js > node server.js
+-  Clone > npm install > node bin/populateDB.js > node server.js

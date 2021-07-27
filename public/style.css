@@ -11,6 +11,7 @@
     background-color: #C2C2C2;
     background-image: url("/img/gradient.jpg");
     background-size: cover;
+    background-attachment: fixed;
     padding: 70px 0;
     border: 0px solid #ffffff;
     text-align: center;
@@ -58,6 +59,10 @@
     font-family: "Arial", sans-serif;
     font-weight: bold;
     text-decoration: none;
+  }
+
+  span {
+    font-size: 65px;
   }
   
   .grid-container {

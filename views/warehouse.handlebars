@@ -10,6 +10,7 @@
           {{#each this.Items}} <!--Display item images-->
 		<a href="/items/{{id}}"><img src="{{image}}" class="card-img-top warehouse-img"></a>
         {{/each}}<br>
+
         <!--Add item button -to add new item for each aisle-->
         <a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="btn btn-warning additem-btn">Add item</button></a>
       </div>

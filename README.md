@@ -38,6 +38,7 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 - git commit -m "message"
 - git push -upstream newbranchname (To push code)
 - Create Pull request 
+- git branch -D newbranchname (To delete branch)
 
  # UML
    - **[Activity Diagram](./UML/activitydiagram/)**

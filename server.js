@@ -269,3 +269,8 @@ app.delete('/items/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`🚀  Server listening at http://localhost:${port} 🚀 `);
 });
+
+//404 redirect
+app.use(function (req, res, next) {
+  res.status(404).redirect('/404.html')
+})

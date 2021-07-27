@@ -1,15 +1,16 @@
 <div class="grid-item">
 <h1>🍌Team Brilliant Bananas</h1>
-<h3>has {{warehouses.length}} warehouses.✨</h3><br>
-
+<h3>has {{warehouses.length}} warehouses.✨</h3><br> <!--Number of warehouses-->
+<!--Display 4 warehouses with names and images -->
 <div class="container">
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-	{{#each warehouses}}
+	{{#each warehouses}} <!--for each -->
   <div class="col mb-4 d-flex align-items-stretch">
     <div class="card">
-	<h2 class="card-title">{{name}}'s Warehouse</h2>
-      <img src="{{image}}" class="card-img-top warehouses">
+	<h2 class="card-title">{{name}}'s Warehouse</h2>          <!--display warehouse name-->
+      <img src="{{image}}" class="card-img-top warehouses"> <!--display warehouse image-->
       <div class="card-body">
+    <!--Link to aisles and items display-->
 		<a href="/warehouses/{{id}}" class="btn btn-info detailbtn">Details</a>
       </div>
     </div>

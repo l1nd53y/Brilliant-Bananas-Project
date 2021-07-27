@@ -18,7 +18,7 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 # Team Constitution:
 - Be Respectful with each other
 - Look out and help each other.
-- Communicate and don't get stuck on any blockers for long time through chat or slack.
+- Communicate and don't get stuck on any blockers for long time.
 - Create new branch for every issue.
 
 

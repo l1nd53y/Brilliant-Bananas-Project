@@ -30,7 +30,7 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
      - git add .
 - git rm --cached db.sqlite
 
--**To create branch and pull request
+- ** To create branch and pull request
 - git checkout -b newbranchname (create a new branch for each issue) 
 - git branch (To confirm which branch you are on)
 - git add . (To add all the changed files) 

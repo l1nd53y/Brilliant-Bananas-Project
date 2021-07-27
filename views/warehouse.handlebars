@@ -2,7 +2,7 @@
 <div class="container">
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 	{{#each warehouse.Aisles}}
-  <div class="col mb-4 d-flex align-items-stretch">
+  <div class="col mb-4">
     <div class="card">
 	<h2 class="card-title"><u>{{this.name}}</u></h2>
       
@@ -10,10 +10,12 @@
           {{#each this.Items}}
 		<a href="/items/{{id}}"><img src="{{image}}" class="card-img-top warehouse-img"></a>
         {{/each}}<br>
-        <a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="btn btn-warning additem-btn">+</button></a>
+        <a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="btn btn-warning additem-btn">Add item</button></a>
       </div>
     </div>
-  </div>{{/each}}
+  </div><script>
+  document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
+</script>{{/each}}
 </div>
 </div>
 </div>

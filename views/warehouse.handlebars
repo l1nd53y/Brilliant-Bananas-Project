@@ -1,16 +1,19 @@
-<div>
-    <div class="grid-container">
-        <div class="grid-item">
-            <h1><u>{{warehouse.name}}</u></h1>
-            <img class="item-img" src="{{warehouse.image}}"/><br>
-            <h4><u>Aisles:</u></h4> {{#each warehouse.Aisles}}
-                <h4>{{this.name}}</h4><a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="button">+</button></a>
-                    <ul>{{#each this.Items}}
-                    <li><a href="/items/{{id}}">{{this.name}}</a></li>
-                    {{/each}}
-                    </ul>
-                    {{/each}}
-            <a href="/warehouses"><button class="button">❮ Warehouses</button></a>
-            <a class="btn" href="/new-item-form/asile/"><button class="button">Add item +</button></a>
-        </div>
+<div class="grid-item">
+<div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+	{{#each warehouse.Aisles}}
+  <div class="col mb-4 d-flex align-items-stretch">
+    <div class="card">
+	<h2 class="card-title"><u>{{this.name}}</u></h2>
+      
+      <div class="card-body">
+          {{#each this.Items}}
+		<a href="/items/{{id}}"><img src="{{image}}" class="card-img-top warehouse-img"></a>
+        {{/each}}<br>
+        <a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="btn btn-warning additem-btn">+</button></a>
+      </div>
+    </div>
+  </div>{{/each}}
+</div>
+</div>
 </div>

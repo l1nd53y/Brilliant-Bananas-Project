@@ -1,12 +1,19 @@
-<div>
-    <h1>Warehouses~</h1>
-	<h3>There are {{warehouses.length}} warehouses.</h3> 
-    <div class="grid-container">
+<div class="grid-item">
+<h1>🍌Team Brilliant Bananas</h1>
+<h3>has {{warehouses.length}} warehouses.✨</h3><br>
+
+<div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 	{{#each warehouses}}
-        <div class="grid-item">
-			<h2>{{name}}</h2>
-			<img class="item-img" src="{{image}}" />
-			<a class="btn" href="/warehouses/{{id}}"><button class="button">Details ❯</button></a>
-		</div>
-	{{/each}}
+  <div class="col mb-4 d-flex align-items-stretch">
+    <div class="card">
+	<h2 class="card-title">{{name}}'s Warehouse</h2>
+      <img src="{{image}}" class="card-img-top warehouses">
+      <div class="card-body">
+		<a href="/warehouses/{{id}}" class="btn btn-info detailbtn">Details</a>
+      </div>
+    </div>
+  </div>{{/each}}
+</div>
+</div>
 </div>

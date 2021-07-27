@@ -73,14 +73,14 @@
     },
     {
         "name": "Sharon",
-        "image": "/img/Sharon2.jpg",
+        "image": "/img/sharon/Sharon2.jpg",
         "aisle": [
             {
                 "name": "Fashion",
                 "items": [
                     {
                         "name": "Crocs",
-                        "image": "/img/Shoes.jpg",
+                        "image": "/img/sharon/Shoes.jpg",
                         "quantity": "1",
                         "category": "shoes",
                         "price": 60.00,
@@ -88,7 +88,7 @@
                     },
                     {
                         "name": "Padded Banana Jacket",
-                        "image": "/img/jacket.jpg",
+                        "image": "/img/sharon/jacket.jpg",
                         "quantity": "1",
                         "category": "clothing",
                         "price": 40.00,
@@ -96,7 +96,7 @@
                     },
                     {
                         "name": "Toe Socks",
-                        "image": "/img/socks.jpg",
+                        "image": "/img/sharon/socks.jpg",
                         "quantity": "1",
                         "category": "clothing",
                         "price": 8.00,
@@ -104,7 +104,7 @@
                     },
                     {
                         "name": "Dolce Gabanna pants",
-                        "image": "/img/pants.jpg",
+                        "image": "/img/sharon/pants.jpg",
                         "quantity": "1",
                         "category": "clothing",
                         "price": 55.00,
@@ -117,7 +117,7 @@
                 "items": [
                     {
                         "name": "Rocking Chair",
-                        "image": "/img/banana_chair.jpg",
+                        "image": "/img/sharon/banana_chair.jpg",
                         "quantity": "1",
                         "category": "Home",
                         "price": 125.00,
@@ -125,7 +125,7 @@
                     },
                     {
                         "name": "Canvas Wall Art",
-                        "image": "/img/wall_art.jpg",
+                        "image": "/img/sharon/wall_art.jpg",
                         "quantity": "1",
                         "category": "Home",
                         "price": 40.00,
@@ -133,7 +133,7 @@
                     },
                     {
                         "name": "Shower Curtain",
-                        "image": "/img/shower_curtain.jpg",
+                        "image": "/img/sharon/shower_curtain.jpg",
                         "quantity": "1",
                         "category": "Home",
                         "price": 12.00,

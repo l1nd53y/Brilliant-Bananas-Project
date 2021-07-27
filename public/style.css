@@ -1,24 +1,16 @@
-img:not(.bananas) {
+/* img:not(.bananas) {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
   height: 200px;
   object-fit: cover;
-}
-
-/* .item1 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
 } */
   
   body {
     background-color: #C2C2C2;
-    /* background-image: url("###"); */
+    background-image: url("/img/gradient.jpg");
+    background-size: cover;
     padding: 70px 0;
     border: 0px solid #ffffff;
     text-align: center;
@@ -47,6 +39,7 @@ img:not(.bananas) {
   a {
     color: #d8c519;
     font-family: "Arial", sans-serif;
+    font-weight: bold;
     text-decoration: none;
   }
   
@@ -57,7 +50,7 @@ img:not(.bananas) {
   }
   
   .grid-item {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.4);
     border: 0px solid #ffffff;
     padding: 15px;
     margin: 10px 10px;
@@ -81,22 +74,111 @@ input[type=text] {
 }
 
 label {
-  color: white;
+  color: #484848;
   font-family: "Arial", sans-serif; 
   font-weight: bold;
 }
 
-.button {
-  background-color: #4c6271;
+.additem-btn {
+  /* background-color: #4c6271; */
   border: none;
   color: white;
   padding: 8px 8px;
-  margin-top: 8px;
+  margin-top: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  opacity: 0.6;
+  font-weight: bold;
+  opacity: 0.8;
   transition: 0.3s;
   border-radius: 8px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.btndelete {
+  /* background-color: #4c6271; */
+  border: none;
+  color: white;
+  padding: 8px 8px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: 0.3s;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.btnback {
+  /* background-color: #4c6271; */
+  border: none;
+  color: white;
+  padding: 8px 8px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: 0.3s;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.detailbtn {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  right:25%;
+  font-weight: bold;
+}
+
+.warehouse-img {
+  width:  40%;
+  height: 40%;
+  object-fit: cover;
+  padding: 3px 3px 3px 3px;
+  border-radius: 20%;
+}
+
+.item-img {
+  width:  60%;
+  height: 60%;
+  object-fit: cover;
+  padding-bottom: 10px;
+  /* border-radius: 20%; */
+}
+
+@media (max-width: 576px) {  
+  .xs {color:red;font-weight:bold;}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width:768px) {  
+  .sm {color:red;font-weight:bold;}
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) and (max-width:992px) {  
+ .md {color:red;font-weight:bold;}
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width:1200px) { 
+ .lg {color:red;font-weight:bold;}
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    .xl {color:red;font-weight:bold;}
 }

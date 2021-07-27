@@ -23,6 +23,12 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 - Inform each other for pull request.
 - Take breaks in between.
 
+# Git Commands
+- git fetch origin master
+- git reset --hard origin/main (To overide files)
+- git rm -r --cached . (To ignore gitignore on main branch)
+     - git add .
+- git rm --cached db.sqlite
 
  # UML
    - **[Activity Diagram](./UML/activitydiagram/)**

@@ -1,7 +1,7 @@
 # Brilliant-Bananas-Project Multiverse Final Inventory Project (Chad, Afreen, Sharon & Lindsey)
 
 # Description of our Project:
-We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse displays a list of all items in each aisle.The user can view details of each item like name, price,description and category by clicking on any specific item from the list. A new item can be added in each aisle by submitting the form. An item can also be removed from the warehouse.
+We built a Brilliant Bananas Inventory App for 4 Warehouses.Each warehouse displays a list of all items in each aisle.The user can view details of each item like name, price, description and category by clicking on any specific item from the list. A new item can be added in each aisle by submitting the form. An item can also be removed from the warehouse.
 
 # Collaborators :
 - Chad
@@ -12,8 +12,8 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 # Install run
 -  Clone 
 - npm install 
-- node bin/populateDB.js 
-- node server.js
+- node bin/populateDB.js (npm run seed)
+- node server.js         (npm start)
 
 # Team Constitution:
 - Be respectful.
@@ -24,13 +24,7 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 - Take breaks in between.
 
 # Git Commands
-- git fetch origin master
-- git reset --hard origin/main (To overide files)
-- git rm -r --cached . (To ignore gitignore on main branch)
-     - git add .
-- git rm --cached db.sqlite
-
-- ** To create branch and pull request
+ **To create branch and pull request**
 - git checkout -b newbranchname (create a new branch for each issue) 
 - git branch (To confirm which branch you are on)
 - git add . (To add all the changed files) 
@@ -39,14 +33,24 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses.Where each warehouse
 - git push -upstream newbranchname (To push code)
 - Create Pull request 
 - git branch -D newbranchname (To delete branch)
+- git branch -d newbranchname
+  **Other git commands**
+- git fetch origin master
+- git reset --hard origin/main (To overide files)
+- git rm -r --cached . 
+     - git add .
+- git rm --cached db.sqlite
+
+
 
  # UML
    - **[Activity Diagram](./UML/activitydiagram/)**
-   - **[Class Diagram](./UML/Class%20Diagrams/)**
+   - **[Class Diagram](./UML/Warehouse UML/classdiagram.png)**
    - **[Wire Frame](./UML/wireframe/)**
-   - **[Schema Design](./UML/Schema%20design)**
-   - **[Sequence Diagram](./UML/Sequence%20diagram)**
-   - **[Use Case](./UML/Usecase%20diagram)**
+   - **[Schema Design](./UML/Warehouse UML/schemadesign.png)**
+   - **[Sequence Diagram](./UML/Warehouse UML/sequence.png)**
+   - **[Use Case](./UML/Warehouse UML/usecase.png)**
+                 (./UML/Warehouse UML/uml.md)**
 
 
 

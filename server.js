@@ -7,7 +7,7 @@ const methodOverride = require('method-override');
 
 
 const {Warehouse} = require('./models/warehouse');
-const {Aisle} = require('./models/Aisle.js');
+const {Aisle} = require('./models/aisle.js');
 const {Item} = require('./models/Item.js');
 
 const initialiseDb = require("./initialiseDb");

@@ -250,6 +250,33 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
     }
 });
 
+//Route for edit item form (working)
+app.get("/edit-item-form/items/:id", idCheck, async (req, res) => {
+  //Input Validation
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  res.render("editItemForm", { id: req.params.id }); //renders a editItemForm handlebars
+});
+
+//Route to PUT(update) an item's details on submit (not working)
+// app.put("/edit-item-form/items/:id", itemValidation, async (req, res) => {
+//   const errors = validationResult(req);
+//   if (!errors.isEmpty()) {
+//     return res.status(400).json({ errors: errors.array() });
+//   }
+//   const updatedItem = await Item.update(req.body);
+//   const foundItem = await Item.findByPk(updatedItem.id);
+//   if (foundItem) {
+//     const foundAisle = await Aisle.findByPk(req.params.id);
+//     const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
+//     res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
+//   } else {
+//     res.status(400);
+//   }
+// });
+
 // Route to delete item with a specific id from warehouse
 app.delete("/items/:id", async (req, res) => {
   await Item.destroy({

@@ -236,8 +236,7 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
   }
   
   //Try block for Sequelize
-  const newItem = await Item.create(req.body).catch(console.log('🐛ERROR IN CREATING🐛'));
-  try {
+  const newItem = await Item.create(req.body).catch(console.log('🐛 ERROR IN CREATING ITEM 🐛'));
     const foundItem = await Item.findByPk(newItem.id);
     if (foundItem) {
       //return to Aisle
@@ -250,10 +249,6 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
     } else {
       res.status(400).send("Failed to Create and find new Item");
     }
-  } catch (error) {
-    console.log('Error Adding to DB wrong Category');
-    res.status(400).send("Error With Category..");
-  }
 });
 
 // Route to delete item with a specific id from warehouse

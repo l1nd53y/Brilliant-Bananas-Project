@@ -8,12 +8,12 @@ describe('Aisles database', () => {
     })
 
     test('can create aisle', async () => {
-        const testAisle = await Aisle.create({name: 'Fashion' })
-        expect(testAisle.name).toBe('Fashion')
+        const testAisle = await Aisle.create({name: 101 })
+        expect(testAisle.name).toBe(101)
     })
 
-    test('aisle is type of string', async () => {
-        const testAisle = await Aisle.create({name: 'Fashion' })
-        expect(typeof testAisle.name).toBe('string')
+    test('aisle is type number', async () => {
+        const testAisle = await Aisle.create({name: 101 })
+        expect(typeof testAisle.name).toBe('number')
     })
 })

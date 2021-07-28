@@ -15,7 +15,7 @@ initialiseDb();
 
 const app = express();
 //channel for our server to listen to client requests
-const port = 3000; //server port
+const port = process.env.PORT || 3000; //server port
 const idCheck = [check("id").isNumeric().withMessage("id must be a number")];
 
 // serve static assets from the public/ folder

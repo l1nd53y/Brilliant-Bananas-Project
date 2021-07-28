@@ -57,8 +57,8 @@ app.get("/warehouses", async (req, res) => {
   //goes into the database and looks for all Warehouses
   const warehouses = await Warehouse.findAll();
   //console.log(`🐛 warehouse:`, warehouses);
-  res.render("warehouses", { warehouses }); //render warehouses handlebars (2 args: string name of template, data to put in)
- // res.json(warehouses)    //server will respond with all the warehouses found in the database
+  //res.render("warehouses", { warehouses }); //render warehouses handlebars (2 args: string name of template, data to put in)
+ res.json(warehouses)    //server will respond with all the warehouses found in the database
 });
 
 //Route to retrieve warehouse with a specified id 
@@ -75,13 +75,14 @@ app.get("/warehouses/:id", idCheck, async (req, res) => {
       include: Item,
     },
   });
-  res.render("warehouse", { warehouse }); //displays aisle and items (render warehouse handlebars)
+  //res.render("warehouse", { warehouse });
+  res.json(warehouse) //displays aisle and items (render warehouse handlebars)
 });
 
 //Route to post warehouses 
 app.post("/warehouses", async (req, res) => {
   //Validate input
-  res.sendStatus(201);
+  res.sendStatus(201).withMessage("Posted Successfully");
 });
 
 //Route to delete warehouse from db with a specified id
@@ -96,7 +97,7 @@ app.delete("/warehouses/:id", idCheck, async (req, res) => {
       id: req.params.id,
     },
   });
-  res.sendStatus(200);
+  res.sendStatus(200).withMessage("Deleted warehouse");
 });
 
 //Route to update warehouse with specified id for all properties
@@ -149,8 +150,10 @@ const aisleChecks = [
 
 //Route to retrieve all aisles
 app.get("/aisles", async (req, res) => {
-  const aisles = await Aisles.findAll();
+  const aisles = await Aisle.findAll();
   res.render("aisles", { aisles });
+  //res.json(aisles)
+
 });
 
 //Aisle Routes -(option if we add just a single Aisle view) 
@@ -166,9 +169,18 @@ app.get("/aisles/:id", aisleChecks, async (req, res) => {
     },
   });
   //console.log(`🐛 Ailse:`, aisle);
-  res.json(aisle);
-  //res.render();
+  //res.json(aisle);
+  res.render();
 });
+
+//Route to delete aisle
+app.delete('/aisles/:id', async (req, res) => {
+  await Aisle.destroy({
+      where : {id : req.params.id}
+  })
+  //res.json()
+  res.redirect('/warehouses');
+})
 
 /**
  * Item Route(s)

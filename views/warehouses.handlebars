@@ -12,6 +12,13 @@
       <div class="card-body">
     <!--Link to aisles and items display-->
 		<a href="/warehouses/{{id}}" class="btn btn-info detailbtn">Details</a>
+
+    <!--Delete Warehouse button-->
+  <form method="post" action="/warehouses/{{warehouse.id}}?_method=DELETE">
+    <input type="hidden" name="_method" value="DELETE"> 
+    <button type="submit" class="btn btn-danger">Delete Warehouse</button>
+  </form>
+
       </div>
     </div>
   </div>{{/each}}

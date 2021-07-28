@@ -155,7 +155,7 @@ app.get("/aisles", async (req, res) => {
 });
 
 //Aisle Routes -(option if we add just a single Aisle view) 
-app.get("/aisles/:id", aisleChecks, async (req, res) => {
+app.get("/aisles/:id", async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

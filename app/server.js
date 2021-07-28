@@ -2,9 +2,7 @@ const express = require("express"); //import the express dependency
 const { check, validationResult } = require("express-validator");
 const Handlebars = require("handlebars");
 const expressHandlebars = require("express-handlebars");
-const {
-  allowInsecurePrototypeAccess,
-} = require("@handlebars/allow-prototype-access");
+const {allowInsecurePrototypeAccess,} = require("@handlebars/allow-prototype-access");
 const methodOverride = require("method-override");
 
 const { Warehouse } = require("../models/warehouse");
@@ -218,8 +216,9 @@ const itemValidation = [
 app.get("/new-item-form/asile/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
-  //hard code for now couldning get to work in time
-  const cateories = ['Clothing','Cookie','Drink','Cereal', 'Bear','Pokemon','Cat','Shoes','Makeup','Skin care','Eye product','Lip product','Toys', 'Garden', 'Home', 'Candy', 'Armament']
+
+  //pull Cat from env file
+  const cateories = process.env.CATEGORIES.split(',');
 
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -235,7 +234,7 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
   
-  //Try block for Sequelize
+  //dont know if need the try block or if the catch will actually catch the error and exit gracefully
   const newItem = await Item.create(req.body).catch(console.log('🐛 ERROR IN CREATING ITEM 🐛'));
     const foundItem = await Item.findByPk(newItem.id);
     if (foundItem) {

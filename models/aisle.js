@@ -6,7 +6,7 @@ class Aisle extends Model {}
 
 // Create attributes (columns) for our model
 Aisle.init({
-    name: DataTypes.STRING,
+    name: DataTypes.NUMBER,
 }, {
     sequelize, // What database is our table stored in
     timestamps: false,

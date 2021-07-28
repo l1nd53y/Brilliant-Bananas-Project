@@ -14,7 +14,7 @@ describe('Item Object',() => {
    // const racquets= new Item('racquets','light weight and good net',12.99,'Sports','racquets.png')
       //1-Data types test
         test ('Item has name', async ()=> {
-            const testItem = await Item.create({name: 'baseball', image: 'ball.jepeg', category: 'sports', price: 5.99, description: 'Leather cover with raised seams and Solid cork composition core' })
+            const testItem = await Item.create({name: 'baseball', image: 'ball.jepeg', category: 'home', price: 5.99, description: 'Leather cover with raised seams and Solid cork composition core' })
             expect(testItem.name).toBe('baseball');
             });
     
@@ -24,8 +24,8 @@ describe('Item Object',() => {
             });
     
         test ('Item has category', async ()=> {
-            const testItem = await Item.create({category: 'sports'})
-            expect(testItem.category).toBe('sports');
+            const testItem = await Item.create({category: 'home'})
+            expect(testItem.category).toBe('home');
             });
     
         test ('Item has image', async ()=> {

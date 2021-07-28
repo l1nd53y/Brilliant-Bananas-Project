@@ -8,8 +8,8 @@ class Item extends Model {}
 Item.init({
     name: DataTypes.STRING,
     image: DataTypes.STRING,
-    category: DataTypes.STRING,
-    price: DataTypes.STRING,
+    category: DataTypes.ENUM('Home', 'garden', 'clothing', 'armament', 'shoes', 'Bear', 'Pokemon','Cat','Cereal','Cookie','Drink','Candy'),
+    price: DataTypes.DOUBLE,
     description: DataTypes.STRING,
 }, {
     sequelize, // What database is our table stored in

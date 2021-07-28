@@ -6,16 +6,17 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const methodOverride = require('method-override');
 
 
-const {Warehouse} = require('./models/Warehouse');
-const {Aisle} = require('./models/Aisle');
-const {Item} = require('./models/Item');
+const {Warehouse} = require('../models/warehouse');
+const {Aisle} = require('../models/aisle.js');
+const {Item} = require('../models/Item.js');
 
-const initialiseDb = require("./initialiseDb");
+const initialiseDb = require("../initialiseDb");
+
 initialiseDb();
 
 const app = express();
 //channel for our server to listen to client requests
-const port = 3000; //server port
+const port = process.env.PORT || 3000; //server port
 const idCheck = [check("id").isNumeric().withMessage("id must be a number")];
 
 // serve static assets from the public/ folder
@@ -51,13 +52,14 @@ const warehouseChecks = [
   check("id").isNumeric().withMessage("id must be a number"),
 ];
 
+
 //Route to retrieve all warehouses
 app.get("/warehouses", async (req, res) => {
   //goes into the database and looks for all Warehouses
   const warehouses = await Warehouse.findAll();
-  console.log(`🐛 warehouse:`, warehouses);
-  //res.render("warehouses", { warehouses }); //render warehouses handlebars (2 args: string name of template, data to put in)
-  res.json(warehouses)    //server will respond with all the warehouses found in the database
+  //console.log(`🐛 warehouse:`, warehouses);
+ // res.render("warehouses", { warehouses }); //render warehouses handlebars (2 args: string name of template, data to put in)
+ res.json({warehouses});  //server will respond with all the warehouses found in the database
 });
 
 //Route to retrieve warehouse with a specified id 
@@ -74,18 +76,18 @@ app.get("/warehouses/:id", idCheck, async (req, res) => {
       include: Item,
     },
   });
-  //res.render("warehouse", { warehouse });
-  res.json({warehouse}) //displays aisle and items (render warehouse handlebars)
+  res.json({warehouse});
+ // res.render("warehouse", { warehouse }); //displays aisle and items (render warehouse handlebars)
 });
 
 //Route to post warehouses 
 app.post("/warehouses", async (req, res) => {
   //Validate input
-  res.sendStatus(201).withMessage("Posted Successfully");
+  res.sendStatus(201);
 });
 
 //Route to delete warehouse from db with a specified id
-app.delete("/warehouses/:id", async (req, res) => {
+app.delete("/warehouses/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -96,10 +98,34 @@ app.delete("/warehouses/:id", async (req, res) => {
       id: req.params.id,
     },
   });
-  //res.redirect('/')
-  res.sendStatus(200).withMessage("Deleted warehouse");
+  res.sendStatus(200).withMessage("Warehouse Deleted ");
+ // res.redirect('/')
 });
 
+app.delete("warehouses/aisles/items/:id",idCheck, async (req, res) => {
+    //Input Validation
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    await Warehouse.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    await Aisle.destroy ({
+      where: {
+        id: req.params.id,
+      },
+    })
+    await Item.destroy ({
+      where: {
+        id: req.params.id,
+      },
+    })
+    res.sendStatus(200).withMessage("Warehouse Deleted ");
+   // res.redirect('/')
+  });
 
 
 
@@ -114,8 +140,7 @@ app.put("/warehouses/:id", warehouseChecks, async (req, res) => {
   //Add a warehouse to the DB
   const warehouse = await Warehouse.findByPk(req.params.id);
   await warehouse.update(req.body);
-  res.json(warehouse);
-  res.sendStatus(200).withMessage("Updated Successfully");
+  res.sendStatus(200).withMessage("Posted Successfully");
 });
 
 //Route to update a warehouse with specified id for any property
@@ -157,7 +182,6 @@ app.get("/aisles", async (req, res) => {
   const aisles = await Aisle.findAll();
   //res.render("aisles", { aisles });
   res.json(aisles)
-
 });
 
 //Aisle Routes -(option if we add just a single Aisle view) 
@@ -173,18 +197,9 @@ app.get("/aisles/:id", aisleChecks, async (req, res) => {
     },
   });
   //console.log(`🐛 Ailse:`, aisle);
-  //res.json(aisle);
-  res.render();
+  res.json(aisle);
+  //res.render();
 });
-
-//Route to delete aisle
-app.delete('/aisles/:id', async (req, res) => {
-  await Aisle.destroy({
-      where : {id : req.params.id}
-  })
-  //res.json()
-  res.redirect('/warehouses');
-})
 
 /**
  * Item Route(s)
@@ -241,6 +256,7 @@ app.get("/new-item-form/asile/:id", idCheck, async (req, res) => {
 
 //Route to post the item details submitted on new item form
 app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
+  //wrap in try catch for sequelize check not expression
   //console.log('🐛 BUG TEST 🐛:', req.body);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

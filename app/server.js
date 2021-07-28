@@ -11,6 +11,7 @@ const {Aisle} = require('../models/aisle.js');
 const {Item} = require('../models/Item.js');
 
 const initialiseDb = require("../initialiseDb");
+
 initialiseDb();
 
 const app = express();
@@ -225,6 +226,7 @@ app.get("/new-item-form/asile/:id", idCheck, async (req, res) => {
 
 //Route to post the item details submitted on new item form
 app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
+  //wrap in try catch for sequelize check not expression
   //console.log('🐛 BUG TEST 🐛:', req.body);
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

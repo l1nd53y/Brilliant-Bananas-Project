@@ -1,6 +1,6 @@
 const {sequelize} = require('../db');
 const { DataTypes, Model } = require('sequelize');
-
+const cateories = ['Clothing','Cookie','Drink','Cereal', 'Bear','Pokemon','Cat','Shoes','Makeup','Skin care','Eye product','Lip product','Toys', 'Garden', 'Home', 'Candy', 'Armament']
 // Creates a Item Table in our database
 class Item extends Model {}
 
@@ -8,7 +8,10 @@ class Item extends Model {}
 Item.init({
     name: DataTypes.STRING,
     image: DataTypes.STRING,
-    category: DataTypes.ENUM('Home', 'garden', 'clothing', 'armament', 'shoes', 'Bear', 'Pokemon','Cat','Cereal','Cookie','Drink','Candy'),
+    category:{
+        type: DataTypes.ENUM,
+        values: cateories
+      },
     price: DataTypes.DOUBLE,
     description: DataTypes.STRING,
 }, {
@@ -16,4 +19,4 @@ Item.init({
     timestamps: false,
 });
 
-module.exports = {Item};
+module.exports = { Item };

@@ -1,31 +1,41 @@
 <!--Add Item Form-->
-<form action="/new-item-form/asile/{{id}}" method="post" >
-<!--Input for name-->
-    <label for="name">Item Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+<form action="/new-item-form/asile/{{id}}" method="post">
+  <!--Input for name-->
+  <label for="name">Item Name:</label><br />
+  <input type="text" id="name" name="name" required /><br /><br />
 
-<!--Input for image-->
-    <label for="image">Image URL:</label><br>
-    <input type="text" id="image" name="image" required><br><br>
+  <!--Input for image-->
+  <label for="image">Image URL:</label><br />
+  <input type="text" id="image" name="image" required /><br /><br />
 
-<!--Input for description--> 
-    <label for="description">Description:</label><br>
-    <input type="text" id="description" name="description" required><br><br>
+  <!--Input for description-->
+  <label for="description">Description:</label><br />
+  <input type="text" id="description" name="description" required /><br /><br />
 
-<!--Input for price-->
-    <label for="price">Price:</label><br>
-    <input type="text" id="price" name="price" required><br><br>
+  <!--Input for price-->
+  <label for="price">Price:</label><br />
+  <input type="text" id="price" name="price" required /><br /><br />
 
-<!--Input for category-->
-    <label for="category">Category:</label><br>
-    <input type="text" id="category" name="category" required><br><br>
-    <input type="hidden" id="AisleId" name="AisleId" value={{id}}>
+  <!--Input for category-->
+  <label for="category">Category:</label><br />
+  {{!-- <input type="text" id="category" name="category" required /> --}}
+  <select class="custom-select" id="category" name="category" required>
+    <option selected>Choose...</option>
+    {{#each category}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+  <br /><br />
+  <input type="hidden" id="AisleId" name="AisleId" value={{id}} />
 
-    <p>Aisle: {{id}}</p> <!--passing the aisle id -->
-<!--Submit Item button-->
-<button type="submit" class="btn btn-info">Submit a new item!</button>
+  <p>Aisle: {{id}}</p>
+  <!--passing the aisle id -->
+  <!--Submit Item button-->
+  <button type="submit" class="btn btn-info">Submit a new item!</button>
 </form>
 
 <script>
-  document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
+  document.write('<a href="' + document.referrer + '"><button class="btn
+  btn-info btnback">❮ Back</button></a>');
 </script>
+<p>Cats</p>

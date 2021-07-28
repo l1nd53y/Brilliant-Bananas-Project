@@ -1,6 +1,9 @@
 const {sequelize} = require('../db');
 const { DataTypes, Model } = require('sequelize');
-const cateories = ['Clothing','Cookie','Drink','Cereal', 'Bear','Pokemon','Cat','Shoes','Makeup','Skin care','Eye product','Lip product','Toys', 'Garden', 'Home', 'Candy', 'Armament']
+
+require('dotenv').config();
+const cateories = process.env.CATEGORIES.split(',');
+
 // Creates a Item Table in our database
 class Item extends Model {}
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node /app/server.js",
+    "start": "node app/server.js",
     "seed": "node bin/populateDb.js"
   },
   "keywords": [],

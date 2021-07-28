@@ -209,7 +209,7 @@ const itemValidation = [
     .withMessage("Max Lenth of name 50") //validate name is max 50 chars
     .matches(/^[A-Za-z0-9 .,'!&]+$/)
     .withMessage("Special Char limited"),
-  check("image").isURL().withMessage("Image must be URL"), //validate image url is url
+  check("image").isURL().withMessage("Must be valid HTTP url") //validate image url is url
 ];
 
 //Route for new item form
@@ -257,25 +257,34 @@ app.get("/edit-item-form/items/:id", idCheck, async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  res.render("editItemForm", { id: req.params.id }); //renders a editItemForm handlebars
+  const item = await Item.findByPk(req.params.id).catch('Error Fetching Item from db');
+  const cateories = process.env.CATEGORIES.split(',');
+  res.render("editItemForm", { id: req.params.id , category: cateories, item: item}); //renders a editItemForm handlebars
 });
 
 //Route to PUT(update) an item's details on submit (not working)
-// app.put("/edit-item-form/items/:id", itemValidation, async (req, res) => {
-//   const errors = validationResult(req);
-//   if (!errors.isEmpty()) {
-//     return res.status(400).json({ errors: errors.array() });
-//   }
-//   const updatedItem = await Item.update(req.body);
-//   const foundItem = await Item.findByPk(updatedItem.id);
-//   if (foundItem) {
-//     const foundAisle = await Aisle.findByPk(req.params.id);
-//     const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
-//     res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
-//   } else {
-//     res.status(400);
-//   }
-// });
+app.put("/edit-item-form/items/:id", itemValidation, async (req, res) => {
+  //Validation
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  //update item with new info
+  const updatedItem = await Item.update(req.body,{
+    where: { id: req.params.id }
+  });
+  //check it was updated
+  const foundItem = await Item.findByPk(req.params.id);
+  console.log(`foundItem`, foundItem);
+  if (foundItem) {
+    const foundAisle = await Aisle.findByPk(req.params.id);
+    const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
+    res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
+  } else {
+    res.status(400).send("bad http request");
+  }
+});
 
 // Route to delete item with a specific id from warehouse
 app.delete("/items/:id", async (req, res) => {

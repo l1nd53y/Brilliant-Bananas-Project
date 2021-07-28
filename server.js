@@ -6,9 +6,9 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const methodOverride = require('method-override');
 
 
-const {Warehouse} = require('./models/Warehouse');
-const {Aisle} = require('./models/Aisle');
-const {Item} = require('./models/Item');
+const {Warehouse} = require('./models/Warehouse.js');
+const {Aisle} = require('./models/Aisle.js');
+const {Item} = require('./models/Item.js');
 
 const initialiseDb = require("./initialiseDb");
 initialiseDb();

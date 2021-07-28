@@ -1,14 +1,15 @@
-const express = require("express");  //import the express dependency
-const { check, validationResult } = require('express-validator');
-const Handlebars = require('handlebars')
-const expressHandlebars = require('express-handlebars')
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
-const methodOverride = require('method-override');
+const express = require("express"); //import the express dependency
+const { check, validationResult } = require("express-validator");
+const Handlebars = require("handlebars");
+const expressHandlebars = require("express-handlebars");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
+const methodOverride = require("method-override");
 
-
-const {Warehouse} = require('../models/warehouse');
-const {Aisle} = require('../models/aisle.js');
-const {Item} = require('../models/Item.js');
+const { Warehouse } = require("../models/warehouse");
+const { Aisle } = require("../models/aisle.js");
+const { Item } = require("../models/Item.js");
 
 const initialiseDb = require("../initialiseDb");
 
@@ -23,7 +24,7 @@ const idCheck = [check("id").isNumeric().withMessage("id must be a number")];
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 
 //Configures handlebars library to work well w/ Express + Sequelize model
 const handlebars = expressHandlebars({
@@ -52,17 +53,16 @@ const warehouseChecks = [
   check("id").isNumeric().withMessage("id must be a number"),
 ];
 
-
 //Route to retrieve all warehouses
 app.get("/warehouses", async (req, res) => {
   //goes into the database and looks for all Warehouses
   const warehouses = await Warehouse.findAll();
   //console.log(`🐛 warehouse:`, warehouses);
   res.render("warehouses", { warehouses }); //render warehouses handlebars (2 args: string name of template, data to put in)
- // res.json(warehouses)    //server will respond with all the warehouses found in the database
+  // res.json(warehouses)    //server will respond with all the warehouses found in the database
 });
 
-//Route to retrieve warehouse with a specified id 
+//Route to retrieve warehouse with a specified id
 app.get("/warehouses/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
@@ -79,7 +79,7 @@ app.get("/warehouses/:id", idCheck, async (req, res) => {
   res.render("warehouse", { warehouse }); //displays aisle and items (render warehouse handlebars)
 });
 
-//Route to post warehouses 
+//Route to post warehouses
 app.post("/warehouses", async (req, res) => {
   //Validate input
   res.sendStatus(201);
@@ -128,7 +128,6 @@ app.patch("/warehouses/:id", warehouseChecks, async (req, res) => {
   res.sendStatus(200);
 });
 
-
 /**
  * Aisle(s) Routes
  *  GET, PUT, POST, PUT, DELETE
@@ -145,7 +144,8 @@ const aisleChecks = [
   check("id").isNumeric().withMessage("id not a number"), //validate id is numeric
   check("image").isURL().withMessage("must be Valid URL"), //validate image is url
   check("name")
-    .isLength({ max: 50 }).withMessage("name can't be longer than 50 char"), //validate name is max 50 characters 
+    .isLength({ max: 50 })
+    .withMessage("name can't be longer than 50 char"), //validate name is max 50 characters
 ];
 
 //Route to retrieve all aisles
@@ -154,8 +154,8 @@ app.get("/aisles", async (req, res) => {
   res.render("aisles", { aisles });
 });
 
-//Aisle Routes -(option if we add just a single Aisle view) 
-app.get("/aisles/:id", aisleChecks, async (req, res) => {
+//Aisle Routes -(option if we add just a single Aisle view)
+app.get("/aisles/:id", async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -193,7 +193,6 @@ app.get("/items/:id", idCheck, async (req, res) => {
   // res.json(item); //uncomment when using postman
 });
 
-
 /**
  * New Item Route(s)
  *  GET, PUT, POST, PUT, DELETE
@@ -201,14 +200,15 @@ app.get("/items/:id", idCheck, async (req, res) => {
 
 //Validation for route
 const itemValidation = [
-  check("name")    //validate input name is not empty
+  check("name") //validate input name is not empty
     .not()
     .isEmpty()
     .trim()
     .escape()
     .withMessage("Name must be filled in"),
-  check("name").isLength({ max: 50 }).withMessage("Max Lenth of name 50"),//validate name is max 50 chars
   check("name")
+    .isLength({ max: 50 })
+    .withMessage("Max Lenth of name 50") //validate name is max 50 chars
     .matches(/^[A-Za-z0-9 .,'!&]+$/)
     .withMessage("Special Char limited"),
   check("image").isURL().withMessage("Image must be URL"), //validate image url is url
@@ -218,42 +218,51 @@ const itemValidation = [
 app.get("/new-item-form/asile/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
+  //hard code for now couldning get to work in time
+  const cateories = ['Clothing','Cookie','Drink','Cereal', 'Bear','Pokemon','Cat','Shoes','Makeup','Skin care','Eye product','Lip product','Toys', 'Garden', 'Home', 'Candy', 'Armament']
+
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  res.render("newItemForm", { id: req.params.id }); //renders a newItemForm handlebars
+  res.render("newItemForm", { id: req.params.id, category: cateories}); //renders a newItemForm handlebars
 });
 
 //Route to post the item details submitted on new item form
 app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
-  //wrap in try catch for sequelize check not expression
-  //console.log('🐛 BUG TEST 🐛:', req.body);
   const errors = validationResult(req);
+  //Validation
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const newItem = await Item.create(req.body);
-  const foundItem = await Item.findByPk(newItem.id);
-  if (foundItem) {
-    //return to Aisle
-    //res.status(200).redirect(`/aisles/${foundItem.AisleId}`,);
+  
+  //Try block for Sequelize
+  const newItem = await Item.create(req.body).catch(console.log('🐛ERROR IN CREATING🐛'));
+  try {
+    const foundItem = await Item.findByPk(newItem.id);
+    if (foundItem) {
+      //return to Aisle
+      //res.status(200).redirect(`/aisles/${foundItem.AisleId}`,);
 
-    //return to Warehouses
-    const foundAisle = await Aisle.findByPk(req.params.id);
-    const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
-    res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
-  } else {
-    res.status(400).send("Failed to Create and find new Item");
+      //return to Warehouses after creation
+      const foundAisle = await Aisle.findByPk(req.params.id);
+      const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
+      res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
+    } else {
+      res.status(400).send("Failed to Create and find new Item");
+    }
+  } catch (error) {
+    console.log('Error Adding to DB wrong Category');
+    res.status(400).send("Error With Category..");
   }
 });
 
 // Route to delete item with a specific id from warehouse
-app.delete('/items/:id', async (req, res) => {
-    await Item.destroy({
-        where : {id : req.params.id}
-    })
-    res.redirect('/warehouses');
-})
+app.delete("/items/:id", async (req, res) => {
+  await Item.destroy({
+    where: { id: req.params.id },
+  });
+  res.redirect("/warehouses");
+});
 
 //Sets the server and listing port
 app.listen(port, () => {
@@ -262,5 +271,5 @@ app.listen(port, () => {
 
 //404 redirect
 app.use(function (req, res, next) {
-  res.status(404).redirect('/404.html')
-})
+  res.status(404).redirect("/404.html");
+});

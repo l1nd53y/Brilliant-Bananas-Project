@@ -2,7 +2,9 @@ const express = require("express"); //import the express dependency
 const { check, validationResult } = require("express-validator");
 const Handlebars = require("handlebars");
 const expressHandlebars = require("express-handlebars");
-const {allowInsecurePrototypeAccess,} = require("@handlebars/allow-prototype-access");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 const methodOverride = require("method-override");
 
 const { Warehouse } = require("../models/warehouse");
@@ -204,12 +206,6 @@ const itemValidation = [
     .trim()
     .escape()
     .withMessage("Name must be filled in"),
-  check("name")
-    .isLength({ max: 50 })
-    .withMessage("Max Lenth of name 50") //validate name is max 50 chars
-    .matches(/^[A-Za-z0-9 .,'!&]+$/)
-    .withMessage("Special Char limited"),
-  check("image").isURL().withMessage("Must be valid HTTP url") //validate image url is url
 ];
 
 //Route for new item form
@@ -218,12 +214,12 @@ app.get("/new-item-form/asile/:id", idCheck, async (req, res) => {
   const errors = validationResult(req);
 
   //pull Cat from env file and split into array for sql enum
-  const cateories = process.env.CATEGORIES.split(',');
+  const cateories = process.env.CATEGORIES.split(",");
 
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  res.render("newItemForm", { id: req.params.id, category: cateories}); //renders a newItemForm handlebars
+  res.render("newItemForm", { id: req.params.id, category: cateories }); //renders a newItemForm handlebars
 });
 
 //Route to post the item details submitted on new item form
@@ -233,21 +229,23 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  
-  //dont know if need the try block or if the catch will actually catch the error and exit gracefully
-  const newItem = await Item.findOrCreate({where: req.body}).catch(console.log('🐛 ERROR IN CREATING ITEM 🐛'));
-    //const foundItem = await Item.findByPk(newItem.id);
-    if (newItem) {
-      //return to Aisle
-      //res.status(200).redirect(`/aisles/${foundItem.AisleId}`,);
 
-      //return to Warehouses after creation
-      const foundAisle = await Aisle.findByPk(req.params.id);
-      const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
-      res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
-    } else {
-      res.status(400).send("Failed to Create and find new Item");
-    }
+  //dont know if need the try block or if the catch will actually catch the error and exit gracefully
+  const newItem = await Item.findOrCreate({ where: req.body }).catch(
+    console.log("🐛 ERROR IN CREATING ITEM 🐛")
+  );
+  //const foundItem = await Item.findByPk(newItem.id);
+  if (newItem) {
+    //return to Aisle
+    //res.status(200).redirect(`/aisles/${foundItem.AisleId}`,);
+
+    //return to Warehouses after creation
+    const foundAisle = await Aisle.findByPk(req.params.id);
+    const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
+    res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
+  } else {
+    res.status(400).send("Failed to Create and find new Item");
+  }
 });
 
 //Route for edit item form (working)
@@ -257,9 +255,15 @@ app.get("/edit-item-form/items/:id", idCheck, async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const item = await Item.findByPk(req.params.id).catch('Error Fetching Item from db');
-  const cateories = process.env.CATEGORIES.split(',');
-  res.render("editItemForm", { id: req.params.id , category: cateories, item: item}); //renders a editItemForm handlebars
+  const item = await Item.findByPk(req.params.id).catch(
+    "Error Fetching Item from db"
+  );
+  const cateories = process.env.CATEGORIES.split(",");
+  res.render("editItemForm", {
+    id: req.params.id,
+    category: cateories,
+    item: item,
+  }); //renders a editItemForm handlebars
 });
 
 //Route to PUT(update) an item's details on submit (not working)
@@ -271,14 +275,14 @@ app.put("/edit-item-form/items/:id", itemValidation, async (req, res) => {
   }
 
   //update item with new info
-  const updatedItem = await Item.update(req.body,{
-    where: { id: req.params.id }
+  const updatedItem = await Item.update(req.body, {
+    where: { id: req.params.id },
   });
   //check it was updated
   const foundItem = await Item.findByPk(req.params.id);
   console.log(`foundItem`, foundItem);
   if (foundItem) {
-    const foundAisle = await Aisle.findByPk(req.params.id);
+    const foundAisle = await Aisle.findByPk(foundItem.AisleId);
     const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
     res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
   } else {

@@ -27,11 +27,11 @@ describe('Warehouse database', () => {
     })
 
 	test('Warehouse can have many aisles', async () => {
-		const warehouse = await Warehouse.create({name : 'Amazon', image : 'amazon.jpg'})
+		const warehouse = await Warehouse.create({name :'Amazon', image :'amazon.jpg'})
 
-		const aisle1 = await Aisle.create({name : 102});
-		const aisle2 = await Aisle.create({name : 103});
-		const aisle3 = await Aisle.create({name : 104});
+		const aisle1 = await Aisle.create({name : 'Gardening'});
+		const aisle2 = await Aisle.create({name : 'Toys'});
+		const aisle3 = await Aisle.create({name : 'Star wars'});
 
 		await warehouse.addAisle(aisle1) 
 		await warehouse.addAisle(aisle2)

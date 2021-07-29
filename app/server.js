@@ -2,15 +2,15 @@ const express = require("express"); //import the express dependency
 const { check, validationResult } = require("express-validator");
 const Handlebars = require("handlebars");
 const expressHandlebars = require("express-handlebars");
-const {
-  allowInsecurePrototypeAccess,
-} = require("@handlebars/allow-prototype-access");
+const {allowInsecurePrototypeAccess,} = require("@handlebars/allow-prototype-access");
 const methodOverride = require("method-override");
 
+//Model files
 const { Warehouse } = require("../models/warehouse");
 const { Aisle } = require("../models/aisle.js");
 const { Item } = require("../models/Item.js");
 
+//DB Init
 const initialiseDb = require("../initialiseDb");
 
 initialiseDb();
@@ -48,7 +48,7 @@ const warehouseChecks = [
     .trim()
     .escape()
     .withMessage("name can not be blank"),
-  check("name").isLength({ max: 50 }).withMessage("Max length 50 char"),
+  check("name").isLength({ max: 60 }).withMessage("Max length 50 char"),
   check("id").isNumeric().withMessage("id must be a number"),
 ];
 
@@ -56,9 +56,7 @@ const warehouseChecks = [
 app.get("/warehouses", async (req, res) => {
   //goes into the database and looks for all Warehouses
   const warehouses = await Warehouse.findAll();
-  //console.log(`🐛 warehouse:`, warehouses);
-  res.render("warehouses", { warehouses }); //render warehouses handlebars (2 args: string name of template, data to put in)
-  // res.json(warehouses)    //server will respond with all the warehouses found in the database
+  res.render("warehouses", { warehouses }); 
 });
 
 //Route to retrieve warehouse with a specified id
@@ -142,7 +140,7 @@ const aisleChecks = [
     .withMessage("Name can not be blank"),
   check("id").isNumeric().withMessage("id not a number"), //validate id is numeric
   check("name")
-    .isLength({ max: 50 })
+    .isLength({ max: 60 })
     .withMessage("name can't be longer than 50 char"), //validate name is max 50 characters
 ];
 
@@ -205,7 +203,7 @@ const itemValidation = [
     .escape()
     .withMessage("Name must be filled in"),
   check("name")
-    .isLength({ max: 50 })
+    .isLength({ max: 60 })
     .withMessage("Max Lenth of name 50") //validate name is max 50 chars
     .matches(/^[A-Za-z0-9 .,'!&]+$/)
     .withMessage("Special Char limited")
@@ -237,10 +235,7 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
   const newItem = await Item.findOrCreate({ where: req.body }).catch(
     console.log("🐛 ERROR IN CREATING ITEM 🐛")
   );
-  //const foundItem = await Item.findByPk(newItem.id);
   if (newItem) {
-    //return to Aisle
-    //res.status(200).redirect(`/aisles/${foundItem.AisleId}`,);
 
     //return to Warehouses after creation
     const foundAisle = await Aisle.findByPk(req.params.id);
@@ -277,36 +272,41 @@ app.put("/items/edit-item-form/:id", itemValidation, async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  //update item with new info
-  const updatedItem = await Item.update(req.body, {
-    where: { id: req.params.id },
-  });
-  //check it was updated
-  const foundItem = await Item.findByPk(req.params.id);
-  console.log(`foundItem`, foundItem);
-  if (foundItem) {
-    const foundAisle = await Aisle.findByPk(foundItem.AisleId);
+  //look for item, if found update item or display error
+  const itemExists = await Item.findByPk(req.params.id);
+  if(itemExists){
+    await itemExists.update(req.body,{
+      where: { id: req.params.id },
+    });
+    const foundAisle = await Aisle.findByPk(itemExists.AisleId);
     const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
     res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
-  } else {
-    res.status(400).send('bad http request');
+  }else{
+    res.status(400).send('Could not find item to edit');
   }
 });
 
 // Route to delete item with a specific id from warehouse
 app.delete("/items/:id", async (req, res) => {
-  await Item.destroy({
-    where: { id: req.params.id },
-  });
-  res.redirect("/warehouses");
-});
-
-//Sets the server and listing port
-app.listen(port, () => {
-  console.log(`🚀  Server listening at http://localhost:${port} 🚀 `);
+  const itemToDelete = await Item.findByPk(req.params.id);
+  console.log(`object:`, itemToDelete)
+  if(itemToDelete){
+    Item.destroy({
+      where:{ id: itemToDelete.id }
+    });
+    res.redirect('/warehouses');
+  }else{ res.status(400).json({error: 'Item not found'}) }
 });
 
 //404 redirect
 app.use(function (req, res, next) {
   res.status(404).redirect("/404.html");
+});
+
+
+
+
+//Sets the server and listing port
+app.listen(port, () => {
+  console.log(`🚀  Server listening at http://localhost:${port} 🚀 `);
 });

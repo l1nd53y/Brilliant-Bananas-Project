@@ -224,6 +224,14 @@ label {
   padding-bottom: 10px;
 }
 
+#aisleview1 {
+background-color: rgba(141, 134, 151, 0.418)
+}
+
+#aisleview2 {
+  background-color: rgb(217, 240, 11)
+}
+
 @media (max-width: 576px) {  
   .xs {color:red;font-weight:bold;}
 }

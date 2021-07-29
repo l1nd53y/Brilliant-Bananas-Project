@@ -14,13 +14,16 @@
         </ul><br>
           
         <!--Back button-->
-        <script>
+        {{!-- <script>
   document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
-</script>
+</script> --}}
+<a class="btn" href="/warehouses"><button class="btn btn-info btnback">❮ Back</button></a>
 <!--Delete Item button-->
 <form method="post" action="/items/{{item.id}}?_method=DELETE">
 <input type="hidden" name="_method" value="DELETE"> <button type="submit" class="btn btn-danger btndelete">Delete item</button>
 </form>
+
+<a class="btn" href="/items/edit-item-form/{{item.id}}"><button class="btn btn-info edititembtn">Edit item</button></a>
       </div>
     </div>
   </div>

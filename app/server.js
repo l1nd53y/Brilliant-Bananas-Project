@@ -235,9 +235,9 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
   }
   
   //dont know if need the try block or if the catch will actually catch the error and exit gracefully
-  const newItem = await Item.create(req.body).catch(console.log('🐛 ERROR IN CREATING ITEM 🐛'));
-    const foundItem = await Item.findByPk(newItem.id);
-    if (foundItem) {
+  const newItem = await Item.findOrCreate({where: req.body}).catch(console.log('🐛 ERROR IN CREATING ITEM 🐛'));
+    //const foundItem = await Item.findByPk(newItem.id);
+    if (newItem) {
       //return to Aisle
       //res.status(200).redirect(`/aisles/${foundItem.AisleId}`,);
 

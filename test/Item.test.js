@@ -1,4 +1,3 @@
-// const Item= require('../models/Item');
 const {sequelize} = require('../db')
 const { Item } = require('../models/Item')
 
@@ -8,10 +7,6 @@ describe('Item Object',() => {
     beforeAll(async () => {
         await sequelize.sync({force: true})
     })
-
-    // const baseball= new Item('baseball','ball.jpeg','sports',5.99,
-    // 'Leather cover with raised seams and Solid cork composition core')
-   // const racquets= new Item('racquets','light weight and good net',12.99,'Sports','racquets.png')
       //1-Data types test
         test ('Item has name', async ()=> {
             const testItem = await Item.create({name: 'baseball', image: 'ball.jepeg', category: 'home', price: 5.99, description: 'Leather cover with raised seams and Solid cork composition core' })
@@ -47,4 +42,3 @@ describe('Item Object',() => {
             })
 
         })
-    

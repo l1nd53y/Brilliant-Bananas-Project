@@ -6,6 +6,9 @@ const {Warehouse} = require('../models/warehouse');
 const {Aisle} = require('../models/aisle');
 const {Item} = require('../models/Item');
 
+const { Account } = require('../models/users/Account')
+const { User } = require('../models/users/User')
+
 async function populateDb() {
     console.log('!! 💾 PopulateDB Called 💾 !!');
     await initialiseDb();
@@ -23,6 +26,16 @@ async function populateDb() {
             }
         }
     }
+    const lf = await fs.readFile(path.join(__dirname, '..', 'account.json'));
+    const accounts = JSON.parse(String(lf));
+    for(const accountData of accounts){
+        const account = await Account.create(accountData);
+        for(const userData of accountData.user){
+            const user = await User.create(userData);
+            await account.addUser(user);
+        }
+    }
+
     console.log("!! 💾 PopulateDB Called 💾 !!")
 }
 

@@ -9,7 +9,15 @@ const { Warehouse } = require("../models/warehouse");
 const { Aisle } = require("../models/aisle.js");
 const { Item } = require("../models/Item.js");
 
+const { Account } = require("../models/users/Account");
+const { User } = require("../models/users/User");
+const { v4: uuidv4 } = require('uuid');
+const bcrypt = require('bcrypt');
+
+
 const initialiseDb = require("../initialiseDb");
+const { createTestScheduler } = require("jest");
+
 
 initialiseDb();
 
@@ -294,12 +302,49 @@ app.delete("/items/:id", async (req, res) => {
   res.redirect("/warehouses");
 });
 
+/**
+ *  Login/Sign up route
+ *  GET, PUT, POST, PUT, DELETE
+ *  
+ **/
+//TODO: change to post when form is complete.
+app.get('/addUser/:email/:password/:type', async (req, res) => {
+  const uid = uuidv4();
+  const accnt = await Account.create({userID: uid});
+  const salt = await bcrypt.genSalt(10);
+  const hashed = await bcrypt.hash(req.params.password, salt);
+  const usr = await User.create({email: req.params.email, password: hashed, userType: false});
+  accnt.addUser(usr);
+});
+app.post('/login', async (req, res) => {
+  const body = req.body;
+  const user = await User.findOne({email: body.email});
+  if(user){
+    const validPassword = await bcrypt.compare(body.password,user.password);
+    if(validPassword){
+      process.env.ACCOUNT_TYPE = user.type;
+      console.log("user is admin:", process.env.ACCOUNT_TYPE);
+      res.status(200).json({message: 'Password is valid'});
+    }else{
+      res.status(400).json({error: 'Invalid Password'});
+    }
+  }else{
+    res.status(401).json({error:'User does not exist'});
+  }
+});
+
+
+
+
+
+
 //Sets the server and listing port
 app.listen(port, () => {
   console.log(`🚀  Server listening at http://localhost:${port} 🚀 `);
+  
 });
 
 //404 redirect
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.status(404).redirect("/404.html");
 });

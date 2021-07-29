@@ -46,7 +46,6 @@ const warehouseChecks = [
     .trim()
     .escape()
     .withMessage("name can not be blank"),
-  check("image").isURL(),
   check("name").isLength({ max: 50 }).withMessage("Max length 50 char"),
   check("id").isNumeric().withMessage("id must be a number"),
 ];
@@ -140,7 +139,6 @@ const aisleChecks = [
     .escape()
     .withMessage("Name can not be blank"),
   check("id").isNumeric().withMessage("id not a number"), //validate id is numeric
-  check("image").isURL().withMessage("must be Valid URL"), //validate image is url
   check("name")
     .isLength({ max: 50 })
     .withMessage("name can't be longer than 50 char"), //validate name is max 50 characters
@@ -208,8 +206,7 @@ const itemValidation = [
     .isLength({ max: 50 })
     .withMessage("Max Lenth of name 50") //validate name is max 50 chars
     .matches(/^[A-Za-z0-9 .,'!&]+$/)
-    .withMessage("Special Char limited"),
-  check("image").isURL().withMessage("Must be valid HTTP url") //validate image url is url
+    .withMessage("Special Char limited")
 ];
 
 //Route for new item form
@@ -250,8 +247,8 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
     }
 });
 
-//Route for edit item form (working)
-app.get("/edit-item-form/items/:id", idCheck, async (req, res) => {
+//Route for edit item form
+app.get("/items/edit-item-form/:id", idCheck, async (req, res) => {
   //Input Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -262,8 +259,8 @@ app.get("/edit-item-form/items/:id", idCheck, async (req, res) => {
   res.render("editItemForm", { id: req.params.id , category: cateories, item: item}); //renders a editItemForm handlebars
 });
 
-//Route to PUT(update) an item's details on submit (not working)
-app.put("/edit-item-form/items/:id", itemValidation, async (req, res) => {
+//Route to PUT(update) an item's details on submit
+app.put("/items/edit-item-form/:id", itemValidation, async (req, res) => {
   //Validation
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -278,11 +275,11 @@ app.put("/edit-item-form/items/:id", itemValidation, async (req, res) => {
   const foundItem = await Item.findByPk(req.params.id);
   console.log(`foundItem`, foundItem);
   if (foundItem) {
-    const foundAisle = await Aisle.findByPk(req.params.id);
+    const foundAisle = await Aisle.findByPk(foundItem.AisleId);
     const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
     res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
   } else {
-    res.status(400).send("bad http request");
+    res.status(400).send('bad http request');
   }
 });
 

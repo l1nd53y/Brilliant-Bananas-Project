@@ -82,7 +82,7 @@
                         "name": "Crocs",
                         "image": "/img/sharon/Shoes.jpg",
                         "quantity": "1",
-                        "category": "shoes",
+                        "category": "Shoes",
                         "price": 60.00,
                         "description": "Yellow bedazzled with Gold, comfortable fit"
                     },
@@ -90,7 +90,7 @@
                         "name": "Padded Banana Jacket",
                         "image": "/img/sharon/jacket.jpg",
                         "quantity": "1",
-                        "category": "clothing",
+                        "category": "Clothing",
                         "price": 40.00,
                         "description": "yellow padded jacket with banana print all over, stand out in a crowd!"
                     },
@@ -98,7 +98,7 @@
                         "name": "Toe Socks",
                         "image": "/img/sharon/socks.jpg",
                         "quantity": "1",
-                        "category": "clothing",
+                        "category": "Clothing",
                         "price": 8.00,
                         "description": "Enhanced levels of stability and grip.Three-dimensional knitting method ensures a natural fit that’s easy to slip on. "
                     },
@@ -106,7 +106,7 @@
                         "name": "Dolce Gabanna pants",
                         "image": "/img/sharon/pants.jpg",
                         "quantity": "1",
-                        "category": "clothing",
+                        "category": "Clothing",
                         "price": 55.00,
                         "description": "Banana Print Denim Capri Jeans"
                     }
@@ -154,7 +154,7 @@
                         "name": "HUDA BEAUTY Eyeshadow Palette",
                         "image": "/img/Afreen/hudabeauty.jpg",
                         "quantity": "2",
-                        "category": "makeup",
+                        "category": "Makeup",
                         "price": 45.50,
                         "description": "Huda’s favorite, Nude Medium’s versatile palette is a rich mix of spicy."
                     },
@@ -162,7 +162,7 @@
                         "name": "Skin Transformation Cream",
                         "image": "/img/Afreen/skincream.jpg",
                         "quantity": "2",
-                        "category": "skin care",
+                        "category": "Skin care",
                         "price": 35.50,
                         "description": "A hydrating and moisturizing face cream that helps reveal plumped and radiant-looking skin with bakuchiol, malachite, ceramides, and hyaluronic acid."
                     },
@@ -170,7 +170,7 @@
                         "name": "Liquid Lash Extensions Mascara",
                         "image": "/img/Afreen/lancome.webp",
                         "quantity": "2",
-                        "category": "eye product",
+                        "category": "Eye product",
                         "price": 26.50,
                         "description": "Instantly create the look of lash extensions with this award-winning, best-selling mascara powered by technology that won't clump, flake or smudge. "
                     },
@@ -178,7 +178,7 @@
                         "name": "MAC Lipstick Trio",
                         "image": "/img/Afreen/lipstick.jpg",
                         "quantity": "2",
-                        "category": "lip product",
+                        "category": "Lip product",
                         "price": 36.50,
                         "description": "Provides immediate and long-term hydration.A comfortable formula that blurs lines and smooths lips.It is lightweight."
                     
@@ -193,14 +193,14 @@
                         "image": "/img/Afreen/LEGOAttackonSpiderLair.jpg",
                         "quantity": "2",
                         "price": 46.50,
-                        "category": "toys",
+                        "category": "Toys",
                         "description": "Inside the Spider Lair, they’ll find different play areas including a basketball net with basketball launcher, skateboard and quarter pipe, hi-tech command center, and the Spider-Cycle."
                     },
                     {
                         "name": "Hot Wheels Toxic Snake Strike",
                         "image": "/img/Afreen/hotwheels.jpg",
                         "quantity": "2",
-                        "category": "toys",
+                        "category": "Toys",
                         "price": 55.25,
                         "description": "This easy to set up Hot Wheels playset includes one Hot Wheels vehicle, slime and a giant cobra that must be stopped! Once it’s ready to go, place the Hot Wheels car into the launch pad and slam down to send it flying."
                     },
@@ -208,7 +208,7 @@
                         "name": "Sloan Play Kitchen",
                         "image": "/img/Afreen/sloan-play-kitchen-j.jpg",
                         "quantity": "2",
-                        "category": "toys",
+                        "category": "Toys",
                         "price":156.50,
                         "description":" Covered on all sides in a child-safe, water-based paint in White.Features a pretend sink, oven, fridge and set of salt and pepper shakers.Faucet handles and knobs turn and doors open.Intended for children aged 3+."
                     }
@@ -227,7 +227,7 @@
                         "name": "Hoth Parka",
                         "image": "/img/chad/hoth-parka.jpeg",
                         "quantity": "2",
-                        "category": "coat",
+                        "category": "Clothing",
                         "price": 600.50,
                         "description": "Don't be stuck outside on a day or night on Hoth a Parka or you'll need to sacrifice your Tauntaun!"
                     },
@@ -235,7 +235,7 @@
                         "name": "Hoth Com Gloves",
                         "image": "/img/chad/hoth-glove.jpg",
                         "quantity": "2",
-                        "category": "",
+                        "category": "Clothing",
                         "price": 200.50,
                         "description": "All the warmth you could want for your hands. plus built in communication device..what more could you want!"
                     },
@@ -243,7 +243,7 @@
                         "name": "Hoth Boots",
                         "image": "/img/chad/hoth-boot.jpg",
                         "quantity": "2",
-                        "category": "clothing",
+                        "category": "Clothing",
                         "price": 320.00,
                         "description": "No one likes Numb feet! keep you feet warm on the −364 days with the patented Hoth Boots"
                     }
@@ -256,7 +256,7 @@
                         "name": "Sith Robe",
                         "image": "/img/chad/sith-robe.jpg",
                         "quantity": "2",
-                        "category": "clothing",
+                        "category": "Clothing",
                         "price": 1000.50,
                         "description": "Nothing says Dark side like the robe of a Sith Lord!"
                     },
@@ -264,7 +264,7 @@
                         "name": "Battle Droid Mk1",
                         "image": "/img/chad/sith-bd.jpg",
                         "quantity": "2",
-                        "category": "armament",
+                        "category": "Armament",
                         "price": 6000.00,
                         "description": "Have an enemy that needs to be disposed of send the droid 100% satisfaction or your money back."
                     },
@@ -272,7 +272,7 @@
                         "name": "Tie Fighter",
                         "image": "/img/chad/tiefighter.jpg",
                         "quantity": "2",
-                        "category": "armament",
+                        "category": "Armament",
                         "price": 60.50,
                         "description": "Nothing says empire like rolling into battle in a Empire Tie fighter."
                     }

@@ -1,0 +1,42 @@
+<!--Edit Item Form-->
+<form action="/edit-item-form/items/{{item.id}}?_method=PUT" method="post">
+<!--Input for name-->
+    <label for="name">Item Name:</label><br>
+    <input type="text" id="name" name="name" value="{{item.name}}" required><br><br>
+
+<!--Input for image-->
+    <label for="image">Image URL:</label><br>
+    <input type="text" id="image" name="image" value="{{item.image}} "required><br><br>
+
+<!--Input for description--> 
+    <label for="description">Description:</label><br>
+    <input type="text" id="description" name="description" value="{{item.description}}" required><br><br>
+
+<!--Input for price-->
+    <label for="price">Price:</label><br>
+    <input type="text" id="price" name="price" value="{{item.price}}" required><br><br>
+
+<!--Input for category-->
+    <label for="category">Category:</label><br>
+  <select class="custom-select" id="category" name="category" required>
+    <option selected>Choose...</option>
+    {{#each category}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+
+    <p>Aisle: {{id}}</p> <!--passing the aisle id -->
+<!--Submit Item button-->
+<button type="submit" class="btn btn-info">Edit this item!</button>
+</form>
+
+<script>
+  document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
+</script>
+
+
+
+
+
+
+

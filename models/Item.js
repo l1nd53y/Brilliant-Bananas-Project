@@ -1,6 +1,9 @@
 const {sequelize} = require('../db');
 const { DataTypes, Model } = require('sequelize');
 
+require('dotenv').config();
+const cateories = process.env.CATEGORIES.split(',');
+
 // Creates a Item Table in our database
 class Item extends Model {}
 
@@ -8,12 +11,15 @@ class Item extends Model {}
 Item.init({
     name: DataTypes.STRING,
     image: DataTypes.STRING,
-    category: DataTypes.STRING,
-    price: DataTypes.STRING,
+    category:{
+        type: DataTypes.ENUM,
+        values: cateories
+      },
+    price: DataTypes.DOUBLE,
     description: DataTypes.STRING,
 }, {
     sequelize, // What database is our table stored in
     timestamps: false,
 });
 
-module.exports = {Item};
+module.exports = { Item };

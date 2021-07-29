@@ -1,0 +1,21 @@
+<div class="grid-item">
+<div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5"></div>
+  <div class="col mb-4">
+    <div class="card">
+      <!--Single Aisle View-->
+	<h1 id="aisleview1" class="card-title"><u>{{aisle.name}}</u></h1>
+      <div id="aisleview2" class="card-body">
+          {{#each aisle.Items}} <!--Display item images-->
+		<a href="/items/{{id}}"><img src="{{image}}" class="card-img-top warehouse-img"></a>
+        {{/each}}<br>
+        <!--Back button-->
+        <script>
+  document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
+</script>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

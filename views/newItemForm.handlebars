@@ -9,8 +9,8 @@
   <input type="text" id="image" name="image" required /><br /><br />
 
   <!--Input for description-->
-  <label for="description">Description:</label><br />
-  <input type="text" id="description" name="description" required /><br /><br />
+  <label for="description">Description:</label><br>
+    <textarea name="description" rows="5" cols="10" id="description" value="{{item.description}}" required></textarea><br><br>
 
   <!--Input for price-->
   <label for="price">Price:</label><br />
@@ -35,6 +35,5 @@
 </form>
 
 <script>
-  document.write('<a href="' + document.referrer + '"><button class="btn
-  btn-info btnback">❮ Back</button></a>');
+  document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
 </script>

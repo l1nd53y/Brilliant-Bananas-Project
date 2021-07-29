@@ -1,5 +1,5 @@
 <!--Edit Item Form-->
-<form action="/edit-item-form/items/{{item.id}}?_method=PUT" method="post">
+<form action="/items/edit-item-form/{{item.id}}?_method=PUT" method="post">
 <!--Input for name-->
     <label for="name">Item Name:</label><br>
     <input type="text" id="name" name="name" value="{{item.name}}" required><br><br>
@@ -10,7 +10,7 @@
 
 <!--Input for description--> 
     <label for="description">Description:</label><br>
-    <input type="text" id="description" name="description" value="{{item.description}}" required><br><br>
+    <textarea name="description" rows="5" cols="10" id="description" value="{{item.description}}" required></textarea><br><br>
 
 <!--Input for price-->
     <label for="price">Price:</label><br>
@@ -23,13 +23,13 @@
     {{#each category}}
       <option value="{{this}}">{{this}}</option>
     {{/each}}
-  </select>
+  </select><br><br>
 
-    <p>Aisle: {{id}}</p> <!--passing the aisle id -->
 <!--Submit Item button-->
 <button type="submit" class="btn btn-info">Edit this item!</button>
 </form>
 
+{{!-- <a class="btn" href="/warehouses"><button class="btn btn-info btnback">❮ Back</button></a> --}}
 <script>
   document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
 </script>

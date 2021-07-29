@@ -12,14 +12,12 @@
         {{/each}}<br>
 
         <!--Add item button -to add new item for each aisle-->
-        <a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="btn btn-item additem-btn">Add item</button></a>
+        <a class="btn" href="/new-item-form/asile/{{this.id}}"><button class="btn btn-info additem-btn">Add item</button></a>
       </div>
     </div>
   </div>
   <!--Back button- back to warehouses-->
-  <script> 
-  document.write('<a href="' + document.referrer + '"><button class="btn btn-info btnback">❮ Back</button></a>');
-</script>{{/each}}
+  <a class="btn" href="/warehouses"><button class="btn btn-info btnback">❮ Back</button></a>{{/each}}
 </div>
 </div>
 </div>

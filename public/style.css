@@ -95,6 +95,23 @@ input[type=text] {
   align-content: center;
 }
 
+.custom-select {
+  width: 50%;
+  height: 10%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  align-content: center;
+}
+
+textarea {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  align-content: center;
+}
+
 label {
   color: #484848;
   font-family: "Arial", sans-serif; 
@@ -152,7 +169,7 @@ label {
   opacity: 0.8;
   transition: 0.3s;
   border-radius: 8px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
 }
@@ -163,6 +180,25 @@ label {
   left: 25%;
   right:25%;
   font-weight: bold;
+}
+
+.edititembtn {
+/* background-color: #4c6271; */
+  border: none;
+  color: white;
+  padding: 8px 8px;
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: 0.3s;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .warehouse-img {

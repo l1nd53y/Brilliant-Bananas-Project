@@ -165,8 +165,8 @@ app.get("/aisles/:id", async (req, res) => {
     },
   });
   //console.log(`🐛 Ailse:`, aisle);
-  res.json(aisle);
-  //res.render();
+  // res.json(aisle);
+  res.render("aisles",{aisle});
 });
 
 /**

@@ -10,7 +10,9 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses. Each warehouse disp
 - Afreen
 
 # Link of Website
-https://murmuring-chamber-30533.herokuapp.com/
+- https://murmuring-chamber-30533.herokuapp.com/
+
+- https://brilliant-bananas-project.herokuapp.com/
 
 # Install run
 -  Clone 

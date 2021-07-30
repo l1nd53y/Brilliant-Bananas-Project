@@ -19,6 +19,7 @@ We built a Brilliant Bananas Inventory App for 4 Warehouses. Each warehouse disp
 - npm install 
 - node bin/populateDB.js (npm run seed)
 - node server.js         (npm start)
+- NPM Scripts extension to VS code 
 
 # Team Constitution:
 - Be respectful.

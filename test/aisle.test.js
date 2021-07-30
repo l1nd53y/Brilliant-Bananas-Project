@@ -2,11 +2,11 @@ const {sequelize} = require('../db')
 const { Aisle } = require('../models/aisle') 
 const { Item } = require('../models/Item')
 const initialiseDb = require("../initialiseDb")
-initialiseDb();
+ initialiseDb();
 
 describe('Aisles database', () => {
 
-    beforeAll(async () => {
+    beforeEach(async () => {
         await sequelize.sync({force: true})
     })
 
@@ -21,10 +21,10 @@ describe('Aisles database', () => {
     })
 
     test('Aisle can have many items', async () => {
-		const aisle = await Aisle.create({name : "Candy"})
+		const aisle = await Aisle.create({name : 'Candy'})
 
-		const hershey = await Aisle.create({name: 'hershey', image: 'chocolate.jepg', category: 'candy', price: 15.99, description: 'Smooth and velvety chocolate covered in nuts'});
-		const jacket = await Aisle.create({name: 'jacket', image: 'jacket.jepg', category: 'product', price: 35.99, description: 'Nice and warm jacket for winters' });
+		const hershey = await Item.create({name: 'hershey', image: 'chocolate.jepg', category: 'candy', price: 15.99, description: 'Smooth and velvety chocolate covered in nuts'});
+		const jacket = await Item.create({name: 'jacket', image: 'jacket.jepg', category: 'product', price: 35.99, description: 'Nice and warm jacket for winters' });
 
 		await aisle.addItem(hershey) 
 		await aisle.addItem(jacket)

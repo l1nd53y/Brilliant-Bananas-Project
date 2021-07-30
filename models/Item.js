@@ -14,7 +14,7 @@ Item.init({
     category:{
         type: DataTypes.ENUM,
         values: cateories
-      },
+    },
     price: DataTypes.DOUBLE,
     description: DataTypes.STRING,
 }, {

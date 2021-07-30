@@ -2,13 +2,13 @@ const {sequelize} = require('../db')
 const { Warehouse } = require('../models/warehouse')
 const { Aisle } = require('../models/aisle')
 const initialiseDb = require("../initialiseDb")
-initialiseDb();
+ initialiseDb();
 
 
 describe('Warehouse database', () => {
 
-    beforeAll(async () => {
-        await sequelize.sync({force: true})
+    beforeEach(async () => {
+        await sequelize.sync({force: true}) 
     })
 
     test('can create warehouse', async () => {
@@ -27,7 +27,7 @@ describe('Warehouse database', () => {
     })
 
 	test('Warehouse can have many aisles', async () => {
-		const warehouse = await Warehouse.create({name :'Amazon', image :'amazon.jpg'})
+		const warehouse = await Warehouse.create({name :'Amazon', image :'amazon.jpeg'})
 
 		const aisle1 = await Aisle.create({name : 'Gardening'});
 		const aisle2 = await Aisle.create({name : 'Toys'});

@@ -5,6 +5,7 @@ const path = require('path');  //a node native module
 const sequelize = new Sequelize({
     dialect: 'sqlite', // type of sql
     storage: path.join(__dirname, 'db.sqlite'), //file location for our db
+    logging:false
 });
 
 module.exports = { sequelize };

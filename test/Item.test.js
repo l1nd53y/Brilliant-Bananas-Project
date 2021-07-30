@@ -1,15 +1,18 @@
 const {sequelize} = require('../db')
 const { Item } = require('../models/Item')
 
+const initialiseDb = require("../initialiseDb")
+initialiseDb();
+
 
 describe('Item Object',() => {
 
-    beforeAll(async () => {
+    beforeEach(async () => {
         await sequelize.sync({force: true})
     })
       //1-Data types test
         test ('Item has name', async ()=> {
-            const testItem = await Item.create({name: 'baseball', image: 'ball.jepeg', category: 'home', price: 5.99, description: 'Leather cover with raised seams and Solid cork composition core' })
+            const testItem = await Item.create({name: 'baseball', image: 'ball.jpeg', category: 'home', price: 5.99, description: 'Leather cover with raised seams and Solid cork composition core' })
             expect(testItem.name).toBe('baseball');
             });
 

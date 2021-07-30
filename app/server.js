@@ -206,7 +206,7 @@ const itemValidation = [
     .isLength({ max: 60 })
     .withMessage("Max Lenth of name 50") //validate name is max 50 chars
     .matches(/^[A-Za-z0-9 .,'!&]+$/)
-    .withMessage("Special Char limited")
+    .withMessage("Special Char are limited")
 ];
 
 //Route for new item form
@@ -231,12 +231,8 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  //dont know if need the try block or if the catch will actually catch the error and exit gracefully
-  const newItem = await Item.findOrCreate({ where: req.body }).catch(
-    console.log("🐛 ERROR IN CREATING ITEM 🐛")
-  );
+  const newItem = await Item.findOrCreate({ where: req.body }).catch(console.log("🐛 ERROR IN CREATING ITEM 🐛"));
   if (newItem) {
-
     //return to Warehouses after creation
     const foundAisle = await Aisle.findByPk(req.params.id);
     const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
@@ -289,7 +285,6 @@ app.put("/items/edit-item-form/:id", itemValidation, async (req, res) => {
 // Route to delete item with a specific id from warehouse
 app.delete("/items/:id", async (req, res) => {
   const itemToDelete = await Item.findByPk(req.params.id);
-  console.log(`object:`, itemToDelete)
   if(itemToDelete){
     Item.destroy({
       where:{ id: itemToDelete.id }

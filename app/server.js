@@ -234,7 +234,7 @@ app.post("/new-item-form/asile/:id", itemValidation, async (req, res) => {
   const newItem = await Item.findOrCreate({ where: req.body }).catch(console.log("🐛 ERROR IN CREATING ITEM 🐛"));
   if (newItem) {
     //return to Warehouses after creation
-    const foundAisle = await Aisle.findByPk(req.params.id);
+    const foundAisle = await Aisle.findByPk(r.eqparams.id);
     const foundWarehouse = await Warehouse.findByPk(foundAisle.WarehouseId);
     res.status(200).redirect(`/warehouses/${foundWarehouse.id}`);
   } else {

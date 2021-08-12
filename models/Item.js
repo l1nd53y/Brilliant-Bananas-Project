@@ -18,7 +18,7 @@ Item.init({
     price: DataTypes.DOUBLE,
     description: DataTypes.STRING,
 }, {
-    sequelize, // What database is our table stored in
+    sequelize,
     timestamps: false,
 });
 
